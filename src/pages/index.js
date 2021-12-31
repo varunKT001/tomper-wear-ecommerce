@@ -4,6 +4,10 @@ import Products from './ProductsPage';
 import Cart from './CartPage';
 import SingleProduct from './SingleProductPage';
 import Checkout from './CheckoutPage';
+import Login from './LoginPage';
+import Register from './RegisterPage';
+import Forgot from './ForgotPasswordPage';
+import Reset from './ResetPasswordPage';
 import Error from './ErrorPage';
 import PrivateRoute from './PrivateRoute';
 
@@ -14,6 +18,10 @@ export {
   Cart,
   SingleProduct,
   Checkout,
+  Login,
+  Register,
+  Forgot,
+  Reset,
   Error,
   PrivateRoute,
 };

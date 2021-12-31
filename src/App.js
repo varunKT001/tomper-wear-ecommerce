@@ -8,7 +8,12 @@ import {
   Cart,
   SingleProduct,
   Checkout,
+  login,
   Error,
+  Login,
+  Register,
+  Forgot,
+  Reset,
 } from './pages';
 
 function App() {
@@ -28,6 +33,18 @@ function App() {
         </Route>
         <Route exact path='/cart'>
           <Cart />
+        </Route>
+        <Route exact path='/login'>
+          <Login />
+        </Route>
+        <Route exact path='/register'>
+          <Register />
+        </Route>
+        <Route exact path='/forgot-password'>
+          <Forgot />
+        </Route>
+        <Route exact path='/reset-password'>
+          <Reset />
         </Route>
         <Route exact path='/products/:id' children={<SingleProduct />} />
         <Route exact path='/checkout'>
