@@ -6,6 +6,7 @@ import { formatPrice } from '../utils/helpers';
 import { Link } from 'react-router-dom';
 
 const CartTotals = () => {
+  const { currentUser } = useUserContext();
   const { total_amount, shipping_fee } = useCartContext();
 
   return (
@@ -24,9 +25,15 @@ const CartTotals = () => {
             <span>{formatPrice(total_amount + shipping_fee)}</span>
           </h4>
         </article>
-        <Link to='/checkout' className='btn'>
-          proceed to checkout
-        </Link>
+        {currentUser ? (
+          <Link to='/checkout' className='btn'>
+            proceed to checkout
+          </Link>
+        ) : (
+          <Link to='/login' className='btn'>
+            login
+          </Link>
+        )}
       </div>
     </Wrapper>
   );

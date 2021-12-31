@@ -1,17 +1,47 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
+import { useUserContext } from '../context/user_context';
+import useQuery from '../hooks/useQuery';
 
 function ResetPasswordPage() {
+  const history = useHistory();
+  const { resetPassword } = useUserContext();
+  const query = useQuery();
   const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const oobCode = query.get('oobCode');
+
+    if (!password) {
+      alert('enter password');
+    }
+
+    if (!oobCode) {
+      history.push('/');
+    }
+
+    resetPassword(oobCode, password)
+      .then((res) => {
+        console.log(res);
+        alert('password change');
+        history.push('/login');
+      })
+      .catch((err) => {
+        console.log(err.message);
+        alert(`Error: ${err.message}`);
+      });
+  };
 
   return (
     <Wrapper className='page-100'>
       <div>
         <div className='title'>
-          <h2>Reset Password</h2>
+          <h2>Reset</h2>
         </div>
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form onSubmit={handleSubmit}>
           {/* email */}
           <div className='form-control'>
             <input

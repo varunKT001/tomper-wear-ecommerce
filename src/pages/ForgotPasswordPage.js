@@ -1,17 +1,41 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useUserContext } from '../context/user_context';
 
 function ForgotPasswordPage() {
+  const history = useHistory();
+  const { forgotPassword } = useUserContext();
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!email) {
+      return alert('Enter Email');
+    }
+
+    setIsSubmitting(true);
+    forgotPassword(email)
+      .then((res) => {
+        console.log(res);
+        alert('Check Mail');
+      })
+      .catch((err) => {
+        console.log(err.message);
+        alert(`Error: ${err.message}`);
+      })
+      .finally(() => setIsSubmitting(false));
+  };
 
   return (
     <Wrapper className='page-100'>
       <div>
         <div className='title'>
-          <h2>Forgot Password</h2>
+          <h2>Forgot</h2>
         </div>
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form onSubmit={handleSubmit}>
           {/* email */}
           <div className='form-control'>
             <input
@@ -23,7 +47,11 @@ function ForgotPasswordPage() {
             />
           </div>
           {/* end email */}
-          <button type='submit' className='btn forgot-btn'>
+          <button
+            type='submit'
+            className='btn forgot-btn'
+            disabled={isSubmitting}
+          >
             submit
           </button>
           <div className='seperator'>
@@ -104,8 +132,8 @@ const Wrapper = styled.section`
       }
     }
     .forgot-btn {
-      margin-bottom: 0.5rem;
       width: 100%;
+      margin-bottom: 0.5rem;
     }
   }
 `;

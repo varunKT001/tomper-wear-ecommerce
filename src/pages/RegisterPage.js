@@ -1,10 +1,36 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { useUserContext } from '../context/user_context';
+import { Link, useHistory } from 'react-router-dom';
+import useMounted from '../hooks/useMounted';
 
 function RegisterPage() {
+  const history = useHistory();
+  const mounted = useMounted();
+  const { registerUser, signInWithGoogle } = useUserContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!email || !password) {
+      return alert('Enter Email and Password');
+    }
+
+    setIsSubmitting(true);
+    registerUser(email, password)
+      .then((res) => {
+        console.log(res);
+        history.push('/');
+      })
+      .catch((err) => {
+        console.log(err.message);
+        alert(`Error: ${err.message}`);
+      })
+      .finally(() => mounted.current && setIsSubmitting(false));
+  };
 
   return (
     <Wrapper className='page-100'>
@@ -12,11 +38,12 @@ function RegisterPage() {
         <div className='title'>
           <h2>Register</h2>
         </div>
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form onSubmit={handleSubmit}>
           {/* email */}
           <div className='form-control'>
             <input
               type='email'
+              name='email'
               className='input'
               placeholder='Email'
               value={email}
@@ -24,18 +51,23 @@ function RegisterPage() {
             />
           </div>
           {/* end email */}
-          {/* email */}
+          {/* pass */}
           <div className='form-control'>
             <input
               type='password'
+              name='password'
               className='input'
               placeholder='Password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          {/* end email */}
-          <button type='submit' className='btn register-btn'>
+          {/* end pass */}
+          <button
+            type='submit'
+            className='btn register-btn'
+            disabled={isSubmitting}
+          >
             register
           </button>
           {/* links */}
@@ -49,7 +81,22 @@ function RegisterPage() {
             <hr />
             <span>or</span>
           </div>
-          <button type='submit' className='btn google-btn'>
+          <button
+            type='button'
+            className='btn google-btn'
+            disabled={isSubmitting}
+            onClick={() => {
+              signInWithGoogle()
+                .then((user) => {
+                  console.log(user);
+                  history.push('/');
+                })
+                .catch((err) => {
+                  console.log(err.message);
+                  alert(`Error: ${err.message}`);
+                });
+            }}
+          >
             sign in with google
           </button>
         </form>
@@ -129,6 +176,13 @@ const Wrapper = styled.section`
       color: var(--clr-primary-5);
       background: transparent;
       border: 2px solid var(--clr-primary-5);
+      &:disabled {
+        border: 2px solid var(--clr-primary-8);
+        color: var(--clr-primary-8);
+      }
+      &:disabled:hover {
+        color: var(--clr-primary-10);
+      }
     }
   }
 `;

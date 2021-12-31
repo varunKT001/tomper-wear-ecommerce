@@ -1,10 +1,37 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { useUserContext } from '../context/user_context';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import useMounted from '../hooks/useMounted';
 
 function LoginPage() {
+  const history = useHistory();
+  const location = useLocation();
+  const mounted = useMounted();
+  const { loginUser, signInWithGoogle } = useUserContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!email || !password) {
+      return alert('Enter Email and Password');
+    }
+
+    setIsSubmitting(true);
+    loginUser(email, password)
+      .then((res) => {
+        console.log(res);
+        history.push(location.state?.from ?? '/');
+      })
+      .catch((err) => {
+        console.log(err.message);
+        alert(`Error: ${err.message}`);
+      })
+      .finally(() => mounted.current && setIsSubmitting(false));
+  };
 
   return (
     <Wrapper className='page-100'>
@@ -12,11 +39,12 @@ function LoginPage() {
         <div className='title'>
           <h2>Login</h2>
         </div>
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form onSubmit={handleSubmit}>
           {/* email */}
           <div className='form-control'>
             <input
               type='email'
+              name='password'
               className='input'
               placeholder='Email'
               value={email}
@@ -24,17 +52,18 @@ function LoginPage() {
             />
           </div>
           {/* end email */}
-          {/* email */}
+          {/* pass */}
           <div className='form-control'>
             <input
               type='password'
+              name='password'
               className='input'
               placeholder='Password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          {/* end email */}
+          {/* end pass */}
           {/* links */}
           <div className='links'>
             <Link to='/forgot-password' className='link'>
@@ -45,14 +74,33 @@ function LoginPage() {
             </Link>
           </div>
           {/* end links */}
-          <button type='submit' className='btn login-btn'>
+          <button
+            type='submit'
+            className='btn login-btn'
+            disabled={isSubmitting}
+          >
             login
           </button>
           <div className='seperator'>
             <hr />
             <span>or</span>
           </div>
-          <button type='submit' className='btn google-btn'>
+          <button
+            type='button'
+            className='btn google-btn'
+            disabled={isSubmitting}
+            onClick={() => {
+              signInWithGoogle()
+                .then((user) => {
+                  console.log(user);
+                  history.push('/');
+                })
+                .catch((err) => {
+                  console.log(err.message);
+                  alert(`Error: ${err.message}`);
+                });
+            }}
+          >
             sign in with google
           </button>
         </form>
@@ -132,6 +180,13 @@ const Wrapper = styled.section`
       color: var(--clr-primary-5);
       background: transparent;
       border: 2px solid var(--clr-primary-5);
+      &:disabled {
+        border: 2px solid var(--clr-primary-8);
+        color: var(--clr-primary-8);
+      }
+      &:disabled:hover {
+        color: var(--clr-primary-10);
+      }
     }
   }
 `;

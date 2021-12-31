@@ -14,6 +14,7 @@ import {
   Register,
   Forgot,
   Reset,
+  PrivateRoute,
 } from './pages';
 
 function App() {
@@ -34,22 +35,22 @@ function App() {
         <Route exact path='/cart'>
           <Cart />
         </Route>
-        <Route exact path='/login'>
+        <PrivateRoute exact path='/login'>
           <Login />
-        </Route>
-        <Route exact path='/register'>
+        </PrivateRoute>
+        <PrivateRoute exact path='/register'>
           <Register />
-        </Route>
-        <Route exact path='/forgot-password'>
+        </PrivateRoute>
+        <PrivateRoute exact path='/forgot-password'>
           <Forgot />
-        </Route>
-        <Route exact path='/reset-password'>
+        </PrivateRoute>
+        <PrivateRoute exact path='/reset-password'>
           <Reset />
-        </Route>
+        </PrivateRoute>
         <Route exact path='/products/:id' children={<SingleProduct />} />
-        <Route exact path='/checkout'>
+        <PrivateRoute exact path='/checkout'>
           <Checkout />
-        </Route>
+        </PrivateRoute>
         <Route exact path='*'>
           <Error />
         </Route>

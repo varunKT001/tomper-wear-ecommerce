@@ -1,10 +1,34 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
-// will remove later
+import { Route, Redirect, useLocation } from 'react-router-dom';
 import { useUserContext } from '../context/user_context';
+import { Children } from 'react/cjs/react.production.min';
 
-const PrivateRoute = () => {
-  return <h4>Private Route</h4>;
+const PrivateRoute = ({ children, ...rest }) => {
+  const { currentUser } = useUserContext();
+  const location = useLocation();
+
+  if (
+    rest.path === '/login' ||
+    rest.path === '/register' ||
+    rest.path === '/forgot-password' ||
+    rest.path === '/reset-password'
+  ) {
+    return currentUser ? (
+      <Redirect to={location.state?.from ?? '/'} />
+    ) : (
+      <Route {...rest}>{children}</Route>
+    );
+  }
+
+  return currentUser ? (
+    <Route {...rest}>{children}</Route>
+  ) : (
+    <Redirect
+      to={{
+        pathname: '/login',
+        state: { from: rest.path },
+      }}
+    />
+  );
 };
 export default PrivateRoute;

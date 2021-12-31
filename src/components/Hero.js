@@ -13,9 +13,9 @@ const Hero = () => {
           comfort zone
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt cum, molestiae
-          voluptatem molestias dolorum dolore natus ducimus explicabo vel, rerum illo dolorem a quod
-          officiis, assumenda doloribus.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt cum,
+          molestiae voluptatem molestias dolorum dolore natus ducimus explicabo
+          vel, rerum illo dolorem a quod officiis, assumenda doloribus.
         </p>
         <Link to='/products' className='btn'>
           shop now
