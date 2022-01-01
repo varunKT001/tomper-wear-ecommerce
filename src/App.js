@@ -9,7 +9,6 @@ import {
   Cart,
   SingleProduct,
   Checkout,
-  login,
   Error,
   Login,
   Register,

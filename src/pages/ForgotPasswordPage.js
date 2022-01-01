@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useUserContext } from '../context/user_context';
 import { toast } from 'react-toastify';
 
 function ForgotPasswordPage() {
-  const history = useHistory();
   const { forgotPassword } = useUserContext();
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);

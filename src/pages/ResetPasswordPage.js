@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link, useLocation, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useUserContext } from '../context/user_context';
 import useQuery from '../hooks/useQuery';
 import { toast } from 'react-toastify';
