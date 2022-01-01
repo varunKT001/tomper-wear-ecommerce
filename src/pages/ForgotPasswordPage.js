@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link, useHistory } from 'react-router-dom';
 import { useUserContext } from '../context/user_context';
+import { toast } from 'react-toastify';
 
 function ForgotPasswordPage() {
   const history = useHistory();
@@ -13,18 +14,18 @@ function ForgotPasswordPage() {
     e.preventDefault();
 
     if (!email) {
-      return alert('Enter Email');
+      return toast.error('Please enter e-mail');
     }
 
     setIsSubmitting(true);
     forgotPassword(email)
       .then((res) => {
-        console.log(res);
-        alert('Check Mail');
+        toast.info(
+          'A password reset link has been sent, check your inbox and follow the instruction'
+        );
       })
       .catch((err) => {
-        console.log(err.message);
-        alert(`Error: ${err.message}`);
+        toast.error(`Error: ${err.message}`);
       })
       .finally(() => setIsSubmitting(false));
   };

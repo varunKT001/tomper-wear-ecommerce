@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import { useUserContext } from '../context/user_context';
 import useQuery from '../hooks/useQuery';
+import { toast } from 'react-toastify';
 
 function ResetPasswordPage() {
   const history = useHistory();
@@ -16,22 +17,20 @@ function ResetPasswordPage() {
     const oobCode = query.get('oobCode');
 
     if (!password) {
-      alert('enter password');
+      return toast.error('Please enter a new password');
     }
 
     if (!oobCode) {
-      history.push('/');
+      return history.push('/');
     }
 
     resetPassword(oobCode, password)
       .then((res) => {
-        console.log(res);
-        alert('password change');
+        toast.success('Password changed successfully, login to continue');
         history.push('/login');
       })
       .catch((err) => {
-        console.log(err.message);
-        alert(`Error: ${err.message}`);
+        toast.error(`Error: ${err.message}`);
       });
   };
 

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useUserContext } from '../context/user_context';
 import { Link, useHistory } from 'react-router-dom';
 import useMounted from '../hooks/useMounted';
+import { toast } from 'react-toastify';
 
 function RegisterPage() {
   const history = useHistory();
@@ -15,19 +16,21 @@ function RegisterPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!email || !password) {
-      return alert('Enter Email and Password');
+    if (!email) {
+      return toast.error('Please enter e-mail');
+    }
+
+    if (!password) {
+      return toast.error('Please enter password');
     }
 
     setIsSubmitting(true);
     registerUser(email, password)
       .then((res) => {
-        console.log(res);
         history.push('/');
       })
       .catch((err) => {
-        console.log(err.message);
-        alert(`Error: ${err.message}`);
+        toast.error(`Error: ${err.message}`);
       })
       .finally(() => mounted.current && setIsSubmitting(false));
   };
@@ -88,12 +91,10 @@ function RegisterPage() {
             onClick={() => {
               signInWithGoogle()
                 .then((user) => {
-                  console.log(user);
                   history.push('/');
                 })
                 .catch((err) => {
-                  console.log(err.message);
-                  alert(`Error: ${err.message}`);
+                  toast.error(`Error: ${err.message}`);
                 });
             }}
           >
