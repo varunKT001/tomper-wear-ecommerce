@@ -18,6 +18,7 @@ import CartContent from './CartContent';
 import PageHero from './PageHero';
 import StripeCheckout from './StripeCheckout';
 import Toast from './Toast';
+import ShippingForm from './ShippingForm';
 export {
   FeaturedProducts,
   Navbar,
@@ -39,4 +40,5 @@ export {
   PageHero,
   StripeCheckout,
   Toast,
+  ShippingForm,
 };

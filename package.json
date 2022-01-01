@@ -9,6 +9,7 @@
     "@testing-library/react": "^11.1.2",
     "@testing-library/user-event": "^12.2.2",
     "axios": "^0.21.1",
+    "country-state-city": "^3.0.1",
     "dotenv": "^8.2.0",
     "firebase": "^9.6.1",
     "react": "^17.0.1",

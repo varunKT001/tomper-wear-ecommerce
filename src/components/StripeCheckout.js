@@ -10,6 +10,7 @@ import {
 import axios from 'axios';
 import { useCartContext } from '../context/cart_context';
 import { useUserContext } from '../context/user_context';
+import { useOrderContext } from '../context/order_context';
 import { formatPrice } from '../utils/helpers';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -20,6 +21,7 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const CheckoutForm = () => {
   const { cart, total_amount, shipping_fee, clearCart } = useCartContext();
+  const { shipping } = useOrderContext();
   const { currentUser } = useUserContext();
   const history = useHistory();
 
@@ -56,6 +58,7 @@ const CheckoutForm = () => {
         cart,
         shipping_fee,
         total_amount,
+        shipping,
       });
       console.log(data.clientSecret);
       setClientSecret(data.clientSecret);

@@ -1,7 +1,7 @@
 export const formatPrice = (number) => {
   const newNumber = Intl.NumberFormat('en-US', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'INR',
   }).format(number / 100);
   return newNumber;
 };
@@ -15,4 +15,9 @@ export const getUniqueValues = (data, type) => {
 
   unique = new Set(unique);
   return ['all', ...unique];
+};
+
+export const checkObjectProperties = (object) => {
+  const isEmpty = Object.values(object).every((x) => x === null || x === '');
+  return isEmpty;
 };
