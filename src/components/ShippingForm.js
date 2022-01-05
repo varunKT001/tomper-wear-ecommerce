@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useOrderContext } from '../context/order_context';
+import { useCartContext } from '../context/cart_context';
 import { Country, State, City } from 'country-state-city';
 
 const countries = Country.getAllCountries();
@@ -16,6 +18,7 @@ function ShippingForm({ confirmShipping }) {
     },
     updateShipping,
   } = useOrderContext();
+  const { cart } = useCartContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,6 +44,19 @@ function ShippingForm({ confirmShipping }) {
 
     return confirmShipping();
   };
+
+  if (cart.length < 1) {
+    return (
+      <WrapperDiv className='page'>
+        <div className='empty'>
+          <h2>Your cart is empty</h2>
+          <Link to='/products' className='btn'>
+            fill it
+          </Link>
+        </div>
+      </WrapperDiv>
+    );
+  }
 
   return (
     <Wrapper className='page-100'>
@@ -207,6 +223,14 @@ const Wrapper = styled.section`
       margin-top: 1.25rem;
       width: 100%;
     }
+  }
+`;
+const WrapperDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .empty {
+    text-align: center;
   }
 `;
 export default ShippingForm;
