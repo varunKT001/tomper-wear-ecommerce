@@ -9,6 +9,7 @@ import Register from './RegisterPage';
 import Forgot from './ForgotPasswordPage';
 import Reset from './ResetPasswordPage';
 import Error from './ErrorPage';
+import OrdersPage from './OrdersPage';
 import PrivateRoute from './PrivateRoute';
 
 export {
@@ -23,5 +24,6 @@ export {
   Forgot,
   Reset,
   Error,
+  OrdersPage,
   PrivateRoute,
 };

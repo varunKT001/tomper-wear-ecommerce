@@ -21,3 +21,20 @@ export const checkObjectProperties = (object) => {
   const isEmpty = Object.values(object).every((x) => x === null || x === '');
   return isEmpty;
 };
+
+export const formatAddress = (data) => {
+  const {
+    shippingInfo: { address, city, state, country, pinCode },
+  } = data;
+  return `${address}, ${city}, ${state} - ${pinCode}, ${country}`;
+};
+
+export const getOrderStatusColor = (status) => {
+  if (status === 'processing') {
+    return '#FFA500';
+  }
+  if (status === 'rejected') {
+    return '#FF0000';
+  }
+  return '#4BB543';
+};

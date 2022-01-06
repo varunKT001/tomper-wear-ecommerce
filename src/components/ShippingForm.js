@@ -14,6 +14,7 @@ function ShippingForm({ confirmShipping }) {
   const {
     shipping: {
       name,
+      phone_number,
       address: { line1, postal_code, city, state, country },
     },
     updateShipping,
@@ -77,6 +78,18 @@ function ShippingForm({ confirmShipping }) {
             />
           </div>
           {/* end name */}
+          {/* phone */}
+          <div className='form-control'>
+            <input
+              type='number'
+              name='phone_number'
+              className='input'
+              placeholder='Phone number'
+              value={phone_number}
+              onChange={updateShipping}
+            />
+          </div>
+          {/* end phone */}
           {/* address line 1 */}
           <div className='form-control'>
             <input

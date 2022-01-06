@@ -1,10 +1,14 @@
-import { UPDATE_SHIPPING_DETAILS } from '../actions';
+import {
+  UPDATE_SHIPPING_DETAILS,
+  GET_ORDERS_BEGIN,
+  GET_ORDERS_SUCCESS,
+  GET_ORDERS_ERROR,
+} from '../actions';
 
 const order_reducer = (state, action) => {
   if (action.type === UPDATE_SHIPPING_DETAILS) {
     const { name, value } = action.payload;
-    // address
-    if (name === 'name') {
+    if (name === 'name' || name === 'phone_number') {
       return { ...state, shipping: { ...state.shipping, [name]: value } };
     }
     return {
@@ -14,9 +18,17 @@ const order_reducer = (state, action) => {
         address: { ...state.shipping.address, [name]: value },
       },
     };
-
-    throw new Error(`No Matching "${action.type}" - action type`);
   }
+  if (action.type === GET_ORDERS_BEGIN) {
+    return { ...state, orders_loading: true, orders_error: false };
+  }
+  if (action.type === GET_ORDERS_ERROR) {
+    return { ...state, orders_loading: false, orders_error: true };
+  }
+  if (action.type === GET_ORDERS_SUCCESS) {
+    return { ...state, orders_loading: false, orders: action.payload };
+  }
+  throw new Error(`No Matching "${action.type}" - action type`);
 };
 
 export default order_reducer;

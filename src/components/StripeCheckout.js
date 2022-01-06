@@ -21,7 +21,7 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const CheckoutForm = () => {
   const { cart, total_amount, shipping_fee, clearCart } = useCartContext();
-  const { shipping } = useOrderContext();
+  const { shipping, placeOrder } = useOrderContext();
   const { currentUser } = useUserContext();
   const history = useHistory();
 
@@ -58,12 +58,13 @@ const CheckoutForm = () => {
         cart,
         shipping_fee,
         total_amount,
-        shipping,
+        shipping: {
+          name: shipping.name,
+          address: shipping.address,
+        },
       });
-      console.log(data.clientSecret);
       setClientSecret(data.clientSecret);
     } catch (error) {
-      console.log(error.message);
       toast.error('Some error occured while connecting to the payment gateway');
     }
   };
@@ -90,9 +91,10 @@ const CheckoutForm = () => {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
+      await placeOrder();
       setTimeout(() => {
         clearCart();
-        history.push('/');
+        history.push('/orders');
       }, 10000);
     }
   };
@@ -107,7 +109,7 @@ const CheckoutForm = () => {
         <article>
           <h4>Thank You!</h4>
           <h4>Your payment was successfull</h4>
-          <h4>Redirecting to homepage shortly</h4>
+          <h4>Redirecting to Order page shortly</h4>
         </article>
       ) : (
         <article>

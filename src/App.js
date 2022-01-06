@@ -14,6 +14,7 @@ import {
   Register,
   Forgot,
   Reset,
+  OrdersPage,
   PrivateRoute,
 } from './pages';
 
@@ -51,6 +52,9 @@ function App() {
         <Route exact path='/products/:id' children={<SingleProduct />} />
         <PrivateRoute exact path='/checkout'>
           <Checkout />
+        </PrivateRoute>
+        <PrivateRoute exact path='/orders'>
+          <OrdersPage />
         </PrivateRoute>
         <Route exact path='*'>
           <Error />
