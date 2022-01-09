@@ -61,7 +61,7 @@ const Wrapper = styled.section`
     }
     .payment-status {
       span {
-        color: #4bb543;
+        color: var(--clr-green-dark);
       }
     }
     .shipping-fee,

@@ -66,7 +66,8 @@ export const OrderProvider = ({ children }) => {
         quantity: item.amount,
         image: item.image,
         color: item.color,
-        product: item.id.replace(item.color, ''),
+        size: item.size,
+        product: item.id.replace(item.color + item.size, ''),
       };
     });
     const paymentInfo = {

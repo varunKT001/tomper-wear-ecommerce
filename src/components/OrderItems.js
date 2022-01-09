@@ -5,7 +5,7 @@ import AmountButtons from './AmountButtons';
 import { FaTrash } from 'react-icons/fa';
 import { useCartContext } from '../context/cart_context';
 
-const OrderItem = ({ name, price, quantity, image, color, product }) => {
+const OrderItem = ({ name, price, quantity, image, color, size, product }) => {
   return (
     <Wrapper>
       <div className='title'>
@@ -14,6 +14,9 @@ const OrderItem = ({ name, price, quantity, image, color, product }) => {
           <h5 className='name'>{name}</h5>
           <p className='color'>
             color : <span style={{ background: color }}></span>
+          </p>
+          <p className='size'>
+            size :&nbsp;<span>{size}</span>
           </p>
           <h5 className='price-small'>{formatPrice(price)}</h5>
         </div>
@@ -78,6 +81,19 @@ const Wrapper = styled.article`
       background: red;
       margin-left: 0.5rem;
       border-radius: var(--radius);
+    }
+  }
+  .size {
+    color: var(--clr-grey-5);
+    font-size: 0.75rem;
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    span {
+      text-transform: uppercase;
     }
   }
   .price-small {

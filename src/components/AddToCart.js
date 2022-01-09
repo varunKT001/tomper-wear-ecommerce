@@ -7,8 +7,9 @@ import AmountButtons from './AmountButtons';
 
 const AddToCart = ({ product }) => {
   const { addToCart } = useCartContext();
-  const { _id: id, stock, colors } = product;
+  const { _id: id, stock, colors, sizes } = product;
   const [mainColor, setMainColor] = useState(colors[0]);
+  const [mainSize, setMainSize] = useState(sizes[0]);
   const [amount, setAmount] = useState(1);
 
   const increase = () => {
@@ -53,6 +54,21 @@ const AddToCart = ({ product }) => {
             );
           })}
         </div>
+        <span>size : </span>
+        <div>
+          <select
+            className='input sort-input'
+            onChange={(e) => setMainSize(e.target.value)}
+          >
+            {sizes.map((size, index) => {
+              return (
+                <option key={index} value={size}>
+                  {size}
+                </option>
+              );
+            })}
+          </select>
+        </div>
       </div>
       <div className='btn-container'>
         <AmountButtons
@@ -63,7 +79,7 @@ const AddToCart = ({ product }) => {
         <Link
           to='/cart'
           className='btn'
-          onClick={() => addToCart(id, mainColor, amount, product)}
+          onClick={() => addToCart(id, mainColor, mainSize, amount, product)}
         >
           add to cart
         </Link>
@@ -76,7 +92,7 @@ const Wrapper = styled.section`
   margin-top: 2rem;
   .colors {
     display: grid;
-    grid-template-columns: 125px 1fr;
+    grid-template-columns: 75px 0.5fr 75px 0.5fr;
     align-items: center;
     margin-bottom: 1rem;
     span {
@@ -115,6 +131,24 @@ const Wrapper = styled.section`
   .btn {
     margin-top: 1rem;
     width: 140px;
+  }
+  .input {
+    width: 100%;
+    padding: 0.5rem;
+    background: var(--clr-grey-10);
+    border-radius: var(--radius);
+    border-color: transparent;
+    letter-spacing: var(--spacing);
+  }
+  .sort-input {
+    max-width: 300px;
+    border-color: transparent;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 0.25rem 0.5rem;
+    option {
+      text-transform: uppercase;
+    }
   }
 `;
 export default AddToCart;

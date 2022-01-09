@@ -31,10 +31,10 @@ export const formatAddress = (data) => {
 
 export const getOrderStatusColor = (status) => {
   if (status === 'processing') {
-    return '#FFA500';
+    return 'var(--clr-orange)';
   }
   if (status === 'rejected') {
-    return '#FF0000';
+    return 'var(--clr-red-dark)';
   }
-  return '#4BB543';
+  return 'var(--clr-green-dark)';
 };

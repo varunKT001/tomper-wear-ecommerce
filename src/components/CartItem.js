@@ -5,7 +5,7 @@ import AmountButtons from './AmountButtons';
 import { FaTrash } from 'react-icons/fa';
 import { useCartContext } from '../context/cart_context';
 
-const CartItem = ({ id, image, name, color, price, amount }) => {
+const CartItem = ({ id, image, name, color, price, amount, size }) => {
   const { removeItem, toggleAmount } = useCartContext();
 
   const increase = () => {
@@ -24,6 +24,9 @@ const CartItem = ({ id, image, name, color, price, amount }) => {
           <h5 className='name'>{name}</h5>
           <p className='color'>
             color : <span style={{ background: color }}></span>
+          </p>
+          <p className='size'>
+            size :&nbsp;<span>{size}</span>
           </p>
           <h5 className='price-small'>{formatPrice(price)}</h5>
         </div>
@@ -75,7 +78,6 @@ const Wrapper = styled.article`
     font-size: 0.75rem;
     margin-bottom: 0;
   }
-
   .color {
     color: var(--clr-grey-5);
     font-size: 0.75rem;
@@ -93,6 +95,16 @@ const Wrapper = styled.article`
       margin-left: 0.5rem;
       border-radius: var(--radius);
     }
+  }
+  .size {
+    color: var(--clr-grey-5);
+    font-size: 0.75rem;
+    letter-spacing: var(--spacing);
+    text-transform: uppercase;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
   .price-small {
     color: var(--clr-primary-5);
