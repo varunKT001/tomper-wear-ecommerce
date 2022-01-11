@@ -9,8 +9,8 @@ const Hero = () => {
     <Wrapper className='section-center'>
       <article className='content'>
         <h1>
-          Design your <br />
-          comfort zone
+          search less <br />
+          wear more
         </h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt cum,
