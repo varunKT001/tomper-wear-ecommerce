@@ -14,8 +14,7 @@ import { useOrderContext } from '../context/order_context';
 import { formatPrice } from '../utils/helpers';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
-
-const url = 'http://localhost:5000/api/payment/create-payment-intent';
+import { payment_url as url } from '../utils/constants';
 
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 

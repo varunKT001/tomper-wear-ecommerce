@@ -10,6 +10,7 @@ import { useUserContext } from './user_context';
 import { useCartContext } from './cart_context';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { get_order_url, create_order_url } from '../utils/constants';
 
 const initialState = {
   orders_loading: false,
@@ -26,9 +27,6 @@ const initialState = {
     },
   },
 };
-
-const create_order_url = 'http://localhost:5000/api/orders/new';
-const get_order_url = 'http://localhost:5000/api/orders';
 
 const OrderContext = React.createContext();
 

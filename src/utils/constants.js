@@ -39,8 +39,9 @@ export const services = [
   },
 ];
 
-// export const products_url = 'https://course-api.com/react-store-products'
-export const products_url = 'http://localhost:5000/api/products';
-
-// export const single_product_url = `https://course-api.com/react-store-single-product?id=`;
-export const single_product_url = `http://localhost:5000/api/products/`;
+const domain = 'https://tomper-wear-server.herokuapp.com';
+export const products_url = `${domain}/api/products`;
+export const single_product_url = `${domain}/api/products/`;
+export const create_order_url = `${domain}/api/orders/new`;
+export const get_order_url = `${domain}/api/orders`;
+export const payment_url = `${domain}/api/payment/create-payment-intent`;
