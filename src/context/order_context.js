@@ -83,8 +83,7 @@ export const OrderProvider = ({ children }) => {
       totalPrice: total_amount + shipping_fee,
     };
     try {
-      const response = await axios.post(create_order_url, body);
-      const res = response.data;
+      await axios.post(create_order_url, body);
       toast.success('Order placed');
     } catch (error) {
       toast.error(error.message);
@@ -99,6 +98,7 @@ export const OrderProvider = ({ children }) => {
 
   useEffect(() => {
     fetchOrders(get_order_url);
+    // eslint-disable-next-line
   }, [currentUser, cart]);
 
   return (

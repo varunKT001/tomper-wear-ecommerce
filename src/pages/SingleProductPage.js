@@ -26,6 +26,7 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
+    // eslint-disable-next-line
   }, [id]);
 
   useEffect(() => {
@@ -34,6 +35,7 @@ const SingleProductPage = () => {
         history.push('/');
       }, 3000);
     }
+    // eslint-disable-next-line
   }, [error]);
 
   if (loading) {
@@ -51,7 +53,6 @@ const SingleProductPage = () => {
     stock,
     rating: stars,
     numberOfReviews,
-    reviews,
     _id: sku,
     company,
     images,

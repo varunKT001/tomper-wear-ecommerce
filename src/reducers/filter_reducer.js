@@ -44,9 +44,7 @@ const filter_reducer = (state, action) => {
         if (a.price < b.price) {
           return -1;
         }
-        if (a.price > b.price) {
-          return 1;
-        }
+        return 1;
       });
     }
     //high-low
@@ -55,9 +53,7 @@ const filter_reducer = (state, action) => {
         if (a.price < b.price) {
           return 1;
         }
-        if (a.price > b.price) {
-          return -1;
-        }
+        return -1;
       });
     }
     //accending

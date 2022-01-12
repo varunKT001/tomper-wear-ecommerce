@@ -28,6 +28,7 @@ const CheckoutPage = () => {
       return setEditingShipping(true);
     }
     setEditingShipping(false);
+    // eslint-disable-next-line
   }, []);
 
   return (

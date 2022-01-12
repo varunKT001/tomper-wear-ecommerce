@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useOrderContext } from '../context/order_context';
-import { Link } from 'react-router-dom';
 import OrderItem from './OrderItems';
 import {
   getOrderStatusColor,
