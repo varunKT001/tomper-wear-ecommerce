@@ -212,4 +212,5 @@ p {
 .btn:disabled:hover,
 .btn[disabled]:hover {
   color: var(--clr-primary-10);
+  cursor: not-allowed;
 }

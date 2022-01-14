@@ -11,7 +11,11 @@ import {
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
+  GET_SINGLE_PRODUCT_REVIEWS_BEGIN,
+  GET_SINGLE_PRODUCT_REVIEWS_ERROR,
+  GET_SINGLE_PRODUCT_REVIEWS_SUCCESS,
 } from '../actions';
+import { useUserContext } from './user_context';
 
 const initialState = {
   isSidebarOpen: false,
@@ -22,11 +26,14 @@ const initialState = {
   single_product_loading: false,
   single_product_error: false,
   single_product: {},
+  single_product_reviews_loading: false,
+  single_product_reviews_error: false,
 };
 
 const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
+  const { currentUser } = useUserContext();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const openSidebar = () => {
@@ -62,13 +69,55 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
+  const getProductReviews = async (id) => {
+    dispatch({ type: GET_SINGLE_PRODUCT_REVIEWS_BEGIN });
+    try {
+      const response = await axios.get(`${url}/reviews/${id}`);
+      const reviews = response.data;
+      dispatch({
+        type: GET_SINGLE_PRODUCT_REVIEWS_SUCCESS,
+        payload: reviews.data,
+      });
+    } catch (error) {
+      dispatch({ type: GET_SINGLE_PRODUCT_REVIEWS_ERROR });
+    }
+  };
+
+  const reviewProduct = async (id, stars, comment) => {
+    if (currentUser) {
+      const body = {
+        name: currentUser.displayName || 'User',
+        email: currentUser.email,
+        rating: stars,
+        comment: comment,
+        productId: id,
+      };
+      try {
+        const response = await axios.post(`${url}/reviews/`, body);
+        getProductReviews(id);
+        const { success, message } = response.data;
+        return { success, message };
+      } catch (error) {
+        const { success, message } = error.response.data;
+        return { success, message };
+      }
+    }
+  };
+
   useEffect(() => {
     fetchProducts(url);
   }, []);
 
   return (
     <ProductsContext.Provider
-      value={{ ...state, openSidebar, closeSidebar, fetchSingleProduct }}
+      value={{
+        ...state,
+        openSidebar,
+        closeSidebar,
+        fetchSingleProduct,
+        reviewProduct,
+        getProductReviews,
+      }}
     >
       {children}
     </ProductsContext.Provider>

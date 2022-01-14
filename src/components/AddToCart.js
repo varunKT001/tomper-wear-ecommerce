@@ -89,7 +89,7 @@ const AddToCart = ({ product }) => {
 };
 
 const Wrapper = styled.section`
-  margin-top: 2rem;
+  margin: 2rem 0;
   .colors {
     display: grid;
     grid-template-columns: 75px 0.5fr 75px 0.5fr;

@@ -21,6 +21,9 @@ import Toast from './Toast';
 import ShippingForm from './ShippingForm';
 import OrderContent from './OrderContent';
 import OrderItems from './OrderItems';
+import ReviewModal from './ReviewModal';
+import ReviewStars from './ReviewStars';
+import UserReview from './UserReview';
 export {
   FeaturedProducts,
   Navbar,
@@ -45,4 +48,7 @@ export {
   ShippingForm,
   OrderContent,
   OrderItems,
+  ReviewModal,
+  ReviewStars,
+  UserReview,
 };

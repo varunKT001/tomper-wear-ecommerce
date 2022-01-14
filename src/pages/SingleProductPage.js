@@ -10,6 +10,8 @@ import {
   AddToCart,
   Stars,
   PageHero,
+  ReviewModal,
+  UserReview,
 } from '../components';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -53,6 +55,7 @@ const SingleProductPage = () => {
     stock,
     rating: stars,
     numberOfReviews,
+    reviews = [],
     _id: sku,
     company,
     images,
@@ -84,7 +87,20 @@ const SingleProductPage = () => {
               {company}
             </p>
             <hr />
-            {stock > 0 && <AddToCart product={product} />}
+            {stock > 0 && (
+              <AddToCart className='cart-buttons' product={product} />
+            )}
+            <hr />
+            <ReviewModal product={product} />
+            <section className='reviews'>
+              <h3>Reviews</h3>
+              {reviews.length < 1 && (
+                <p>No reviews yet, be the first one to review &#128512;</p>
+              )}
+              {reviews.map((review, index) => {
+                return <UserReview key={index} {...review} />;
+              })}
+            </section>
           </section>
         </div>
       </div>
@@ -114,11 +130,12 @@ const Wrapper = styled.main`
       font-weight: 700;
     }
   }
-
+  .reviews-loading {
+    color: var(--clr-grey-5);
+  }
   @media (min-width: 992px) {
     .product-center {
       grid-template-columns: 1fr 1fr;
-      align-items: center;
     }
     .price {
       font-size: 1.25rem;
