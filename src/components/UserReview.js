@@ -10,7 +10,7 @@ function UserReview({ name, email, rating, comment }) {
       <div className='user-info'>
         <span>{name}</span>
         <span className='dot'></span>
-        <span>{email}</span>
+        <span>Certified Buyer</span>
       </div>
     </Wrapper>
   );
