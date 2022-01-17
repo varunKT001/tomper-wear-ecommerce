@@ -1,15 +1,16 @@
 import React from 'react';
-import { FaShoppingCart, FaUserMinus, FaUserPlus } from 'react-icons/fa';
+import { FaShoppingCart, FaUserPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useProductsContext } from '../context/products_context';
 import { useCartContext } from '../context/cart_context';
 import { useUserContext } from '../context/user_context';
+import { default_profile_image } from '../utils/constants';
 
 const CartButtons = () => {
-  const { currentUser, logoutUser } = useUserContext();
+  const { currentUser } = useUserContext();
   const { closeSidebar } = useProductsContext();
-  const { total_items, clearCart } = useCartContext();
+  const { total_items } = useCartContext();
 
   return (
     <Wrapper className='cart-btn-wrapper'>
@@ -25,17 +26,12 @@ const CartButtons = () => {
           Login <FaUserPlus />
         </Link>
       ) : (
-        <button
-          type='button'
-          className='auth-btn'
-          onClick={() => {
-            clearCart();
-            logoutUser();
-            closeSidebar();
-          }}
-        >
-          Logout <FaUserMinus />
-        </button>
+        <Link to='/profile' className='profile-btn' onClick={closeSidebar}>
+          <img
+            src={currentUser.photoURL || default_profile_image}
+            alt='profile'
+          />
+        </Link>
       )}
     </Wrapper>
   );
@@ -91,6 +87,21 @@ const Wrapper = styled.div`
     letter-spacing: var(--spacing);
     svg {
       margin-left: 5px;
+    }
+  }
+  .profile-btn {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--clr-primary-5);
+    border-radius: 50%;
+    img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
     }
   }
 `;

@@ -9,7 +9,11 @@ import {
   signOut,
   sendPasswordResetEmail,
   confirmPasswordReset,
+  updateProfile,
+  updatePassword,
 } from 'firebase/auth';
+import { upload_url, default_profile_image } from '../utils/constants';
+import axios from 'axios';
 
 const UserContext = React.createContext();
 
@@ -43,12 +47,51 @@ export const UserProvider = ({ children }) => {
     return confirmPasswordReset(auth, oobCode, newPassword);
   };
 
+  const updateUserProfileImage = async (imageURL) => {
+    return updateProfile(currentUser, {
+      photoURL: imageURL,
+    });
+  };
+
+  const updateUserProfileName = async (name) => {
+    return updateProfile(currentUser, {
+      displayName: name,
+    });
+  };
+
+  const updateUserProfilePassword = async (newPassword) => {
+    return updatePassword(currentUser, newPassword);
+  };
+
+  const uploadProfileImage = async (image) => {
+    try {
+      const response = await axios.post(upload_url, { image });
+      const { success, data } = response.data;
+      return { success, data };
+    } catch (error) {
+      const { success, message } = error.response.data;
+      return { success, message };
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
     });
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    if (!currentUser) {
+      return;
+    }
+    if (!currentUser.photoURL) {
+      updateUserProfileImage(default_profile_image)
+        .then(() => setCurrentUser(currentUser))
+        .catch(() => console.log('Error occured'));
+    }
+    // eslint-disable-next-line
+  }, [currentUser]);
 
   return (
     <UserContext.Provider
@@ -60,6 +103,10 @@ export const UserProvider = ({ children }) => {
         signInWithGoogle,
         forgotPassword,
         resetPassword,
+        updateUserProfileImage,
+        updateUserProfileName,
+        uploadProfileImage,
+        updateUserProfilePassword,
       }}
     >
       {children}

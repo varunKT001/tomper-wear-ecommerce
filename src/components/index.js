@@ -24,6 +24,7 @@ import OrderItems from './OrderItems';
 import ReviewModal from './ReviewModal';
 import ReviewStars from './ReviewStars';
 import UserReview from './UserReview';
+import ErrorBoundry from './ErrorBoundry';
 export {
   FeaturedProducts,
   Navbar,
@@ -51,4 +52,5 @@ export {
   ReviewModal,
   ReviewStars,
   UserReview,
+  ErrorBoundry,
 };

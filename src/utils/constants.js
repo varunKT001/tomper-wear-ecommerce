@@ -45,3 +45,6 @@ export const single_product_url = `${domain}/api/products/`;
 export const create_order_url = `${domain}/api/orders/new`;
 export const get_order_url = `${domain}/api/orders`;
 export const payment_url = `${domain}/api/payment/create-payment-intent`;
+export const upload_url = `${domain}/api/upload/`;
+export const default_profile_image =
+  'https://res.cloudinary.com/varuntiwari/image/upload/v1642434014/profile-images/l60Hf_ccgon2.png';

@@ -47,7 +47,7 @@ function LoginPage() {
           <div className='form-control'>
             <input
               type='email'
-              name='password'
+              name='email'
               className='input'
               placeholder='Email'
               value={email}
