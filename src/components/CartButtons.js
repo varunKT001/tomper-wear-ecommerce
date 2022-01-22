@@ -95,7 +95,6 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid var(--clr-primary-5);
     border-radius: 50%;
     img {
       width: 40px;
