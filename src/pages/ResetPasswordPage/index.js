@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import Wrapper from './styles';
 import { useHistory } from 'react-router-dom';
-import { useUserContext } from '../context/user_context';
-import useQuery from '../hooks/useQuery';
+import { useUserContext } from '../../context/user_context';
+import useQuery from '../../hooks/useQuery';
 import { toast } from 'react-toastify';
 
 function ResetPasswordPage() {
@@ -60,47 +60,5 @@ function ResetPasswordPage() {
     </Wrapper>
   );
 }
-
-const Wrapper = styled.section`
-  display: flex;
-  justify-content: center;
-  div {
-    min-width: 300px;
-  }
-  .title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1.25rem;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    .form-control {
-      margin-bottom: 1.25rem;
-      h5 {
-        margin-bottom: 0.5rem;
-      }
-    }
-    .input {
-      width: 100%;
-      padding: 0.5rem;
-      background: var(--clr-grey-10);
-      border-radius: var(--radius);
-      border-color: transparent;
-      letter-spacing: var(--spacing);
-    }
-    .input::placeholder {
-      text-transform: capitalize;
-    }
-    .reset-btn {
-      margin-bottom: 0.5rem;
-      width: 100%;
-    }
-  }
-`;
 
 export default ResetPasswordPage;

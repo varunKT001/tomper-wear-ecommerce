@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { PageHero, StripeCheckout, ShippingForm } from '../components';
-import { checkObjectProperties } from '../utils/helpers';
-// extra imports
-import { useCartContext } from '../context/cart_context';
-import { useOrderContext } from '../context/order_context';
+import Wrapper from './styles';
+import { PageHero, StripeCheckout, ShippingForm } from '../../components';
+import { checkObjectProperties } from '../../utils/helpers';
+import { useCartContext } from '../../context/cart_context';
+import { useOrderContext } from '../../context/order_context';
 import { Link } from 'react-router-dom';
 
 const CheckoutPage = () => {
@@ -53,13 +52,5 @@ const CheckoutPage = () => {
     </main>
   );
 };
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .empty {
-    text-align: center;
-  }
-`;
 
 export default CheckoutPage;
