@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Navbar, Sidebar, Footer, Toast, ErrorBoundry } from './components';
+import { Navbar, Sidebar, Footer, Toast, ErrorBoundary } from './components';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   Home,
@@ -25,7 +25,7 @@ function App() {
       <Toast />
       <Navbar />
       <Sidebar />
-      <ErrorBoundry>
+      <ErrorBoundary>
         <Switch>
           <Route exact path='/'>
             <Home />
@@ -65,7 +65,7 @@ function App() {
             <Error />
           </Route>
         </Switch>
-      </ErrorBoundry>
+      </ErrorBoundary>
       <Footer />
     </Router>
   );
