@@ -43,6 +43,7 @@ const Contact = () => {
               name='feedback'
               className='form-input'
               placeholder='Your feedback'
+              required
             />
             {currentUser ? (
               <button
