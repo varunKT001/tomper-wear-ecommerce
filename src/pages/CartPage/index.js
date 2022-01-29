@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Wrapper from './styles';
 import { useCartContext } from '../../context/cart_context';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,10 @@ import { CartContent, PageHero } from '../../components';
 
 const CartPage = () => {
   const { cart } = useCartContext();
+
+  useEffect(() => {
+    document.title = 'Tomper Wear | Cart';
+  }, []);
 
   if (cart.length < 1) {
     return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Wrapper from './styles';
 import { useUserContext } from '../../context/user_context';
 import { Link, useHistory, useLocation } from 'react-router-dom';
@@ -35,6 +35,10 @@ function LoginPage() {
       })
       .finally(() => mounted.current && setIsSubmitting(false));
   };
+
+  useEffect(() => {
+    document.title = 'Tomper Wear | Login';
+  }, []);
 
   return (
     <Wrapper className='page-100'>

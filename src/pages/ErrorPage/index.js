@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Wrapper from './styles';
 import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
+  useEffect(() => {
+    document.title = 'Tomper Wear | Error';
+  }, []);
+
   return (
     <Wrapper className='page-100'>
       <section>

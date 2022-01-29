@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Wrapper from './styles';
 import { PageHero } from '../../components';
 import aboutImg from '../../assets/hero-bcg.jpeg';
 
 const AboutPage = () => {
+  useEffect(() => {
+    document.title = 'Tomper Wear | About';
+  }, []);
+
   return (
     <main>
       <PageHero title='about' />

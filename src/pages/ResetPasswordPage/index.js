@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Wrapper from './styles';
 import { useHistory } from 'react-router-dom';
 import { useUserContext } from '../../context/user_context';
@@ -33,6 +33,10 @@ function ResetPasswordPage() {
         toast.error(`Error: ${err.message}`);
       });
   };
+
+  useEffect(() => {
+    document.title = 'Tomper Wear | Reset Password';
+  }, []);
 
   return (
     <Wrapper className='page-100'>

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Wrapper from './styles';
 import { Filters, ProductList, Sort, PageHero } from '../../components';
 
 const ProductsPage = () => {
+  useEffect(() => {
+    document.title = 'Tomper Wear | Products';
+  }, []);
+
   return (
     <main>
       <PageHero title='products' />

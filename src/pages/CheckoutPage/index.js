@@ -30,6 +30,10 @@ const CheckoutPage = () => {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    document.title = 'Tomper Wear | Checkout';
+  }, []);
+
   return (
     <main>
       <PageHero title='checkout' />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Wrapper from './styles';
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../../context/user_context';
@@ -28,6 +28,10 @@ function ForgotPasswordPage() {
       })
       .finally(() => setIsSubmitting(false));
   };
+
+  useEffect(() => {
+    document.title = 'Tomper Wear | Forgot Password';
+  }, []);
 
   return (
     <Wrapper className='page-100'>

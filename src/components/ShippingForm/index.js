@@ -6,7 +6,7 @@ import { useOrderContext } from '../../context/order_context';
 import { useCartContext } from '../../context/cart_context';
 import { Country, State, City } from 'country-state-city';
 
-const countries = Country.getAllCountries();
+const countries = [Country.getCountryByCode('IN')];
 const states = State.getStatesOfCountry('IN');
 const cities = City.getCitiesOfCountry('IN');
 
@@ -26,6 +26,9 @@ function ShippingForm({ confirmShipping }) {
 
     if (!name) {
       return toast.error('Enter your Name');
+    }
+    if (!phone_number) {
+      return toast.error('Enter your phone number');
     }
     if (!line1) {
       return toast.error('Enter your Address');

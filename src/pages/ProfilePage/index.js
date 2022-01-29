@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import Wrapper from './styles';
 import { PageHero } from '../../components';
@@ -88,6 +88,10 @@ function ProfilePage() {
     }
     setLoading(false);
   };
+
+  useEffect(() => {
+    document.title = 'Tomper Wear | Profile';
+  }, []);
 
   return (
     <Wrapper>

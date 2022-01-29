@@ -40,14 +40,6 @@ const SingleProductPage = () => {
     // eslint-disable-next-line
   }, [error]);
 
-  if (loading) {
-    return <Loading />;
-  }
-
-  if (error) {
-    return <Error />;
-  }
-
   const {
     name,
     price,
@@ -60,6 +52,19 @@ const SingleProductPage = () => {
     company,
     images,
   } = product;
+
+  useEffect(() => {
+    document.title = `Tomper Wear | ${name}`;
+  }, [name]);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <Error />;
+  }
+
   return (
     <Wrapper>
       <PageHero title={name} product />

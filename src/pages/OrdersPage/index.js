@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Wrapper from './styles';
 import { useOrderContext } from '../../context/order_context';
 import { Link } from 'react-router-dom';
@@ -10,6 +10,10 @@ const OrdersPage = () => {
     orders_loading: loading,
     orders_error: error,
   } = useOrderContext();
+
+  useEffect(() => {
+    document.title = 'Tomper Wear | Orders';
+  }, []);
 
   if (loading) {
     return <Loading />;
