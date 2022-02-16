@@ -13,29 +13,36 @@
 <p align='center'>
 This is the frontend of TomperWear build with MERN stack and deployed with <a href='https://www.netlify.com/' target='_blank'>Netlify</a>
 </p>
-<p align='center'>
-<hr>
-<img src='./assets/dp1.PNG' >
-<hr>
-<img src='./assets/dp2.PNG' >
-<hr>
-<img src='./assets/dp3.PNG' >
-<hr>
-</p>
-
-#### 🚀 Link to [Admin panel](https://github.com/varunKT001/tomper-wear-ecommerce-admin), [Backend](https://github.com/varunKT001/tomper-wear-ecommerce-backend)
 
 ---
 
-#### 🧾 Description
+<p align='center'>
+<br>
+<br>
+<img src='./assets/dp1.PNG' >
+<br>
+<br>
+<img src='./assets/dp2.PNG' >
+<br>
+<br>
+<img src='./assets/dp3.PNG' >
+<br>
+<br>
+</p>
+
+## 🚀 Link to [Admin panel](https://github.com/varunKT001/tomper-wear-ecommerce-admin), [Backend](https://github.com/varunKT001/tomper-wear-ecommerce-backend)
+
+---
+
+## 🧾 Description
 
 TomperWear is an E-commerce platform for small bussiness owners who want to expand their bussiness by providing an online purchase solution to their customers.
 
 ---
 
-#### ✨ Features
+## ✨ Features
 
-##### Client
+#### Client
 
 Users shopping through this platform enjoys following features:
 
@@ -51,7 +58,7 @@ Users shopping through this platform enjoys following features:
 - [x] Users can send feedbacks to the owner.
 - [x] Responsive for all screen sizes.
 
-##### Admin
+#### Admin
 
 The admin panel of TomperWear contains three classes of admins:
 
@@ -158,9 +165,9 @@ This is privilege is ideal for the delivery-agent(s).
 
 ---
 
-#### ⚙ Tools and Technologies used
+## ⚙ Tools and Technologies used
 
-##### [Client](https://github.com/varunKT001/tomper-wear-ecommerce)
+#### [Client](https://github.com/varunKT001/tomper-wear-ecommerce)
 
 1. [React.js](https://reactjs.org/)
 2. [React-icons](https://react-icons.github.io/react-icons/)
@@ -169,13 +176,13 @@ This is privilege is ideal for the delivery-agent(s).
 5. [Stripe](https://stripe.com/)
 6. [Formspree](https://formspree.io/)
 
-##### [Admin panel](https://github.com/varunKT001/tomper-wear-ecommerce-admin)
+#### [Admin panel](https://github.com/varunKT001/tomper-wear-ecommerce-admin)
 
 1. [React.js](https://reactjs.org/)
 2. [Chakra-ui](https://chakra-ui.com/)
 3. [React-icons](https://react-icons.github.io/react-icons/)
 
-##### [Backend](https://github.com/varunKT001/tomper-wear-ecommerce-backend)
+#### [Backend](https://github.com/varunKT001/tomper-wear-ecommerce-backend)
 
 1. [Node.js](https://nodejs.org/en/)
 2. [Express.js](https://expressjs.com/)
@@ -187,7 +194,7 @@ This is privilege is ideal for the delivery-agent(s).
 
 ---
 
-#### 🛠 Installation and setup
+## 🛠 Installation and setup
 
 1. Clone the repo to your local machine.
 2. Install the required dependency for server using :
@@ -216,7 +223,7 @@ This is privilege is ideal for the delivery-agent(s).
    npm start
    ```
 
-#### 🏎 Creating production built
+## 🏎 Creating production built
 
 1. Create a production ready react app using the command :
 
@@ -224,7 +231,7 @@ This is privilege is ideal for the delivery-agent(s).
    npm run build
    ```
 
-#### 😎 Team Members
+## 😎 Team Members
 
 1. Varun Kumar Tiwar - 2020IMT-112
 
