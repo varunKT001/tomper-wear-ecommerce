@@ -26,7 +26,11 @@ const order_reducer = (state, action) => {
     return { ...state, orders_loading: false, orders_error: true };
   }
   if (action.type === GET_ORDERS_SUCCESS) {
-    return { ...state, orders_loading: false, orders: action.payload };
+    return {
+      ...state,
+      orders_loading: false,
+      orders: action.payload.reverse(),
+    };
   }
   throw new Error(`No Matching "${action.type}" - action type`);
 };

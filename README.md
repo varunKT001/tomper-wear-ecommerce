@@ -14,31 +14,17 @@
 This is the frontend of TomperWear build with MERN stack and deployed with <a href='https://www.netlify.com/' target='_blank'>Netlify</a>
 </p>
 
----
-
 <p align='center'>
-<br>
-<br>
-<img src='./assets/dp1.PNG' >
-<br>
-<br>
-<img src='./assets/dp2.PNG' >
-<br>
-<br>
-<img src='./assets/dp3.PNG' >
-<br>
-<br>
+<img src='./assets/dpmain.png'>
 </p>
 
 ## 🚀 Link to [Admin panel](https://github.com/varunKT001/tomper-wear-ecommerce-admin), [Backend](https://github.com/varunKT001/tomper-wear-ecommerce-backend)
 
----
+## 📷 Link to [Screenshots](./SCREENSHOTS.md)
 
 ## 🧾 Description
 
 TomperWear is an E-commerce platform for small bussiness owners who want to expand their bussiness by providing an online purchase solution to their customers.
-
----
 
 ## ✨ Features
 
@@ -163,8 +149,6 @@ This is privilege is ideal for the delivery-agent(s).
 </tbody>
 </table>
 
----
-
 ## ⚙ Tools and Technologies used
 
 #### [Client](https://github.com/varunKT001/tomper-wear-ecommerce)
@@ -191,8 +175,6 @@ This is privilege is ideal for the delivery-agent(s).
 5. [Cloudinary](https://cloudinary.com/)
 6. [Bcrypt.js](https://github.com/dcodeIO/bcrypt.js)
 7. [Stripe](https://stripe.com/)
-
----
 
 ## 🛠 Installation and setup
 
