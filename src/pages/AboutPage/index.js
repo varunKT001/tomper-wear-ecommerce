@@ -19,15 +19,14 @@ const AboutPage = () => {
             <div className='underline'></div>
           </div>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos
-            facere blanditiis animi praesentium in earum nam rerum cupiditate,
-            possimus, a neque sequi quia quis repellat nemo sapiente deserunt
-            placeat aut? Lorem ipsum dolor, sit amet consectetur adipisicing
-            elit. Excepturi tenetur necessitatibus dolorem atque ipsam rem
-            consectetur non dignissimos eaque recusandae. Lorem ipsum dolor, sit
-            amet consectetur adipisicing elit. Ipsam perspiciatis doloribus
-            eaque, doloremque vitae odio fuga aut culpa perferendis! Ex vitae
-            libero ipsam consequatur possimus?
+            TomperWear was started by Varun Tiwar in December'21, with an aim to
+            build a strong infrastructure for small bussiness owners to expand
+            their reach, by bringing their products online. Today TomperWear is
+            used by hundreds of shop owners to expand their bussiness. This is
+            possible just due to your trust, support and our constant efforts to
+            make the platform even better. We are working tirelessly to improve
+            the experiance of our end users and hope to soon react 1000+
+            customers.
           </p>
         </article>
       </Wrapper>

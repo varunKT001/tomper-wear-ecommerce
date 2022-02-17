@@ -8,12 +8,14 @@ const Services = () => {
       <div className='section-center'>
         <article className='header'>
           <h3>
-            Custom furniture <br />
-            Built only for you
+            Your wish
+            <br />
+            Our command
           </h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-            natus officia eaque sed optio neque ipsa quod possimus, in ad?
+            Customer satisfaction is the top-most priorty for TomperWear. It is
+            the only the trust and support of our customers that we are now
+            reaching greater heights.
           </p>
         </article>
         <div className='services-center'>

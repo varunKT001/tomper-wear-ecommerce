@@ -13,9 +13,9 @@ const Hero = () => {
           wear more
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt cum,
-          molestiae voluptatem molestias dolorum dolore natus ducimus explicabo
-          vel, rerum illo dolorem a quod officiis, assumenda doloribus.
+          TomperWear is an e-commerce platform which sells wide variety of
+          clothing essentials. It is a one-stop destination for all your
+          clothing needs.
         </p>
         <Link to='/products' className='btn'>
           shop now

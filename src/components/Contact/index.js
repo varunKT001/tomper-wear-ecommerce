@@ -23,10 +23,10 @@ const Contact = () => {
           <div className='feedback-info'>
             {feedbackText && <p className='success-text'>{feedbackText}</p>}
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
-              dicta similique iste reiciendis voluptates eius sit, repellendus
-              beatae reprehenderit cum sequi vero officiis labore unde placeat
-              dolores enim perferendis veritatis.
+              Customer satisfaction is our top-most priorty. Today were are here
+              only due to your trust and support, and our constant efforts to
+              make the platform better everyday. Please provide your valuable
+              feedback, and help the platform grow.
             </p>
           </div>
           <form className='contact-form' onSubmit={handleSubmit}>
