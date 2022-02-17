@@ -35,7 +35,7 @@ export const services = [
     id: 3,
     icon: <GiStabbedNote />,
     title: 'history',
-    text: 'TomperWear was started in december, 2021 with an initial aim to provide the best in class services to our customers.',
+    text: `TomperWear was started in December'21 with an initial aim to provide the best in class services to our customers.`,
   },
 ];
 
