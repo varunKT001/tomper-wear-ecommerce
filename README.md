@@ -22,6 +22,8 @@ This is the frontend of TomperWear build with MERN stack and deployed with <a hr
 
 ## 📷 Link to [Screenshots](./SCREENSHOTS.md)
 
+## 📷 Link to [Video demo](https://youtu.be/5oGqxtSN0jY)
+
 ## 🧾 Description
 
 TomperWear is an E-commerce platform for small bussiness owners who want to expand their bussiness by providing an online purchase solution to their customers.
