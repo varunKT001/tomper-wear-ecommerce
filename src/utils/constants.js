@@ -47,4 +47,4 @@ export const get_order_url = `${domain}/api/orders`;
 export const payment_url = `${domain}/api/payment/create-payment-intent`;
 export const upload_url = `${domain}/api/upload/`;
 export const default_profile_image =
-  'https://res.cloudinary.com/varuntiwari/image/upload/v1642434014/profile-images/l60Hf_ccgon2.png';
+  'https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg';
