@@ -22,7 +22,7 @@ This is the frontend of TomperWear build with MERN stack and deployed with <a hr
 
 ## 📷 Link to [Screenshots](./SCREENSHOTS.md)
 
-## 📷 Link to [Video demo](https://youtu.be/5oGqxtSN0jY)
+## 🎥 Link to [Video demo](https://youtu.be/5oGqxtSN0jY)
 
 ## 🧾 Description
 
