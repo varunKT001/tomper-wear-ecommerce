@@ -215,6 +215,13 @@ This is privilege is ideal for the delivery-agent(s).
    npm run build
    ```
 
+## 🤝 Test user credentials
+
+| **E-mail**          | **Password** |
+| ------------------- | ------------ |
+| bob@tomperwear.com  | bob1212      |
+| test@tomperwear.com | test1212     |
+
 ## 😎 Team Members
 
 1. Varun Kumar Tiwar - 2020IMT-112
