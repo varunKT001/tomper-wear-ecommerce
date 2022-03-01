@@ -1,6 +1,6 @@
 # 📃 Contribution Guide
 
-#### 🤔 How to contribute?
+## 🤔 How to contribute?
 
 Here are the steps you can follow to start contributing:
 
@@ -62,7 +62,7 @@ git push origin <branch_name>
 
 That it 🎉
 
-#### 🤔 What if all the issues are already assigned?
+## 🤔 What if all the issues are already assigned?
 
 If all the issues are already assigned, you can create your own issues.
 
