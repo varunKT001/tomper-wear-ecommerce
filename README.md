@@ -187,19 +187,7 @@ This is privilege is ideal for the delivery-agent(s).
    npm install
    ```
 
-3. Create a .env file inside the root folder and provide the following environment variables:
-
-   ```env
-   REACT_APP_BACKEND_HOST=<backend_url>
-   REACT_APP_FORMSPREE=<formspree_id>
-   REACT_APP_API_KEY=<firebase_api_key>
-   REACT_APP_AUTH_DOMAIN=<firebase_auth_domain>
-   REACT_APP_PROJECT_ID=<firebase_project_id>
-   REACT_APP_STORAGE_BUCKET=<firebase_storage_bucket_url>
-   REACT_APP_MESSAGING_SENDER_ID=<firebase_messaging_sender_id>
-   REACT_APP_APP_ID=<firebase_app_id>
-   REACT_APP_STRIPE_PUBLIC_KEY=<stripe_public_key>
-   ```
+3. Rename the file `.env.sample` to `.env`.
 
 4. Start the dev server using :
 
