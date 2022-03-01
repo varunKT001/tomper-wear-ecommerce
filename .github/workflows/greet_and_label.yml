@@ -1,0 +1,25 @@
+name: Greet and Label
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened, closed]
+
+jobs:        
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Manoj-Paramsetti/greets-action@main
+        if: ${{ github.event.pull_request.merged == true }}
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_message: 'Woohoo 🚀, thank you @${{ github.actor }} for your amazing contribution 😄'
+           
+      - uses: Manoj-Paramsetti/greets-action@main
+        if: ${{ github.event.pull_request.merged == false}}
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          issue_message: 'Hey @${{ github.actor }} 👋, thank you for raising an issue. Please make sure that it is detailed, and also following the provided template.'
+          pr_message: 'Hey @${{ github.actor }} 👋, thank you for submitting a Pull Request. Make sure it is strictly following the template, and the contribution guidelines.'
+          label_1: 'GSSoC22'

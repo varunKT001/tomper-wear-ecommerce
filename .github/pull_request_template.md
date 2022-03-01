@@ -1,8 +1,8 @@
-## Issue reference
+**Issue reference:**
 
-## Proposed changes
+**Proposed changes:**
 
-## Type of change
+**Type of change:**
 
 Please delete options that are not relevant.
 
@@ -12,7 +12,7 @@ Please delete options that are not relevant.
 - [ ] Other (please specify)
 - [ ] This change requires a documentation update
 
-## Checklist:
+**Checklist:**
 
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my own code
@@ -21,4 +21,4 @@ Please delete options that are not relevant.
 - [ ] My changes generate no new warnings
 - [ ] I have added tests that prove my fix is effective or that my feature works
 
-## Additional info (if any)
+**Additional info (if any):**
