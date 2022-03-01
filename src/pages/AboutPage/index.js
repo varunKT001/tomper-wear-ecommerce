@@ -25,7 +25,7 @@ const AboutPage = () => {
             used by hundreds of shop owners to expand their bussiness. This is
             possible just due to your trust, support and our constant efforts to
             make the platform even better. We are working tirelessly to improve
-            the experiance of our end users and hope to soon react 1000+
+            the experiance of our end users and hope to soon reach 1000+
             customers.
           </p>
         </article>
