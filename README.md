@@ -210,6 +210,14 @@ This is privilege is ideal for the delivery-agent(s).
 | bob@tomperwear.com  | bob1212      |
 | test@tomperwear.com | test1212     |
 
+## 🙌 Open souce programs
+
+<table>
+  <tr>
+    <td align="center"><a href="https://gssoc.girlscript.tech/"><img src="./assets/GSSoC.png" alt="GSSoC'22"><br/>GirlScript Summer of Code 2022 (GSSoC'22)</a></td> 
+  </tr>
+</table>
+
 ## 😎 Team Members
 
 1. Varun Kumar Tiwar - 2020IMT-112
