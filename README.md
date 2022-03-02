@@ -222,6 +222,10 @@ This is privilege is ideal for the delivery-agent(s).
 
 1. Varun Kumar Tiwar - 2020IMT-112
 
+## ⚖ License
+
+[MIT](./LICENSE.md)
+
 <br>
 <br>
 <br>
