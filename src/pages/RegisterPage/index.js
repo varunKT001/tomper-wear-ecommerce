@@ -11,10 +11,12 @@ function RegisterPage() {
   const { registerUser, signInWithGoogle } = useUserContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [cpassword, setcpassword] =useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
 
     if (!email) {
       return toast.error('Please enter e-mail');
@@ -22,6 +24,11 @@ function RegisterPage() {
 
     if (!password) {
       return toast.error('Please enter password');
+    }
+
+    if(password!==cpassword)
+    {
+      return toast.error('Password and Confirm password didnt match')
     }
 
     setIsSubmitting(true);
@@ -67,6 +74,16 @@ function RegisterPage() {
               placeholder='Password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className='form-control'>
+            <input
+              type='password'
+              name='cpassword'
+              className='input'
+              placeholder='Confirm Password'
+              value={cpassword}
+              onChange={(e) => setcpassword(e.target.value)}
             />
           </div>
           {/* end pass */}
