@@ -11,6 +11,7 @@ function RegisterPage() {
   const { registerUser, signInWithGoogle } = useUserContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
@@ -22,6 +23,10 @@ function RegisterPage() {
 
     if (!password) {
       return toast.error('Please enter password');
+    }
+
+    if (password !== confirmPassword) {
+      return toast.error("Passwords didn't match");
     }
 
     setIsSubmitting(true);
@@ -67,6 +72,16 @@ function RegisterPage() {
               placeholder='Password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className='form-control'>
+            <input
+              type='password'
+              name='confirmPassword'
+              className='input'
+              placeholder='Confirm Password'
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
           {/* end pass */}
