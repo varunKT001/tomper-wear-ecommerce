@@ -85,7 +85,6 @@ const filter_reducer = (state, action) => {
     //text
     if (text) {
       tempProducts = tempProducts.filter((product) => {
-        // includes which makes it add as a substring and converting all the typed characters to lowercase which makes it case-sensitive
         return product.name.toLowerCase().includes(text.toLowerCase());
       });
     }
