@@ -27,8 +27,8 @@ function ShippingForm({ confirmShipping }) {
     if (!name) {
       return toast.error('Enter your Name');
     }
-    if (!phone_number) {
-      return toast.error('Enter your phone number');
+    if (!phone_number || phone_number !=  /^\d{10}$/) {
+      return toast.error('Enter valid phone number');
     }
     if (!line1) {
       return toast.error('Enter your Address');
