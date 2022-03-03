@@ -26,7 +26,7 @@ function RegisterPage() {
     }
 
     if (password !== confirmPassword) {
-      return toast.error('Password and Confirm password didnt match');
+      return toast.error("Passwords didn't match");
     }
 
     setIsSubmitting(true);
