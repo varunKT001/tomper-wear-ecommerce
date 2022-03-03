@@ -74,6 +74,7 @@ const filter_reducer = (state, action) => {
 
   if (action.type === UPDATE_FILTERS) {
     const { name, value } = action.payload;
+
     return { ...state, filters: { ...state.filters, [name]: value } };
   }
 
@@ -85,7 +86,8 @@ const filter_reducer = (state, action) => {
     //text
     if (text) {
       tempProducts = tempProducts.filter((product) => {
-        return product.name.toLowerCase().startsWith(text);
+        // includes which makes it add as a substring and converting all the typed characters to lowercase which makes it case-sensitive
+        return product.name.toLowerCase().includes(text.toLowerCase());
       });
     }
     //category

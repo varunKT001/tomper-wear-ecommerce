@@ -52,6 +52,8 @@ export const FilterProvider = ({ children }) => {
     let name = e.target.name;
     let value = e.target.value;
 
+  
+
     if (name === 'category') {
       value = e.target.textContent;
     }
