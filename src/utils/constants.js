@@ -1,5 +1,6 @@
 import React from 'react';
 import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi';
+import { AiFillLinkedin, AiFillYoutube, AiFillTwitterCircle, AiFillGithub } from 'react-icons/ai';
 export const links = [
   {
     id: 1,
@@ -15,6 +16,67 @@ export const links = [
     id: 3,
     text: 'products',
     url: '/products',
+  },
+];
+
+export const socialLinks = [
+  {
+    id: 1,
+    icon: <AiFillGithub className='github' color='#171515' fontSize='2rem' />,
+    text: 'GitHub',
+    url: 'https://github.com/varunKT001/tomper-wear-ecommerce/',
+  },
+  {
+    id: 2,
+    icon: <AiFillLinkedin className='linkedin' color='#0077b5' fontSize='2rem' />,
+    text: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/varun-tiwari-454591178',
+  },
+  {
+    id: 3,
+    icon: <AiFillTwitterCircle className='twitter' fillRule='white' color='#49a1eb' fontSize='2rem' />,
+    text: 'Twitter',
+    url: 'https://github.com/varunKT001/tomper-wear-ecommerce/',
+  },
+  {
+    id: 4,
+    icon: <AiFillYoutube className='youtube' color='#eb3223' fontSize='2rem' />,
+    text: 'YouTube',
+    url: 'https://www.youtube.com/channel/UCUvO6rXuF7VuGhHQI94NIug',
+  }
+
+];
+
+export const footerLinks = [
+  {
+    id: 1,
+    text: 'Home',
+    url: '/',
+  },
+  {
+    id: 2,
+    text: 'About',
+    url: '/about',
+  },
+  {
+    id: 3,
+    text: 'Services',
+    url: '/services',
+  },
+  {
+    id: 4,
+    text: 'Products',
+    url: '/products',
+  },
+  {
+    id: 5,
+    text: 'Contacts',
+    url: '/contacts',
+  },
+  {
+    id: 6,
+    text: 'Orders',
+    url: '/orders',
   },
 ];
 
