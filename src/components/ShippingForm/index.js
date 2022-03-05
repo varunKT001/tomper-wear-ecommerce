@@ -23,6 +23,7 @@ function ShippingForm({ confirmShipping }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const zipRegex = new RegExp('^[1-9][0-9]{5}$');
 
     if (!name) {
       return toast.error('Enter your Name');
@@ -36,6 +37,9 @@ function ShippingForm({ confirmShipping }) {
     if (!postal_code) {
       return toast.error('Enter your Zip Code');
     }
+    if (!zipRegex.test(postal_code)) {
+      return toast.error('Enter Valid Zip Code');
+    }
     if (!city) {
       return toast.error('Enter your City');
     }
@@ -45,7 +49,6 @@ function ShippingForm({ confirmShipping }) {
     if (!country) {
       return toast.error('Enter your Country');
     }
-
     return confirmShipping();
   };
 
@@ -108,7 +111,7 @@ function ShippingForm({ confirmShipping }) {
           {/* address postal code */}
           <div className='form-control'>
             <input
-              type='text'
+              type='number'
               name='postal_code'
               className='input'
               placeholder='Zip Code'
