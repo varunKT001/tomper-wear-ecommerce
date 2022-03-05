@@ -37,6 +37,9 @@ function ShippingForm({ confirmShipping }) {
     if (!postal_code) {
       return toast.error('Enter your Zip Code');
     }
+    if (!zipRegex.test(postal_code)) {
+      return toast.error('Enter Valid Zip Code');
+    }
     if (!city) {
       return toast.error('Enter your City');
     }
@@ -45,9 +48,6 @@ function ShippingForm({ confirmShipping }) {
     }
     if (!country) {
       return toast.error('Enter your Country');
-    }
-    if (!zipRegex.test(postal_code)) {
-      return toast.error('Enter Valid Zip Code');
     }
     return confirmShipping();
   };
