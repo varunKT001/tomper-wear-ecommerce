@@ -42,7 +42,7 @@ const Wrapper = styled.footer`
     width: 95%;
     height: 1px;
     margin-bottom: 1rem;
-    background: var(--clr-grey-6);
+    background: var(--clr-grey-7);
   }
   svg{
     margin:0.7rem;
