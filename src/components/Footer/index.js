@@ -19,13 +19,17 @@ const Footer = () => {
         {footerLinks.map((link) => {
           const { url, text, id } = link;
           return (
-            <div className={id}>
-              <Link to={url}>{text}</Link>
+            <div key={id}>
+              {id === 4 ? <a href='mailto:tiwarivarun819.vt33.vt@gmail.com'>{text}</a>
+                :
+                <Link to={url}>{text}</Link>
+              }
             </div>
           );
         })}
       </div>
-      <hr />
+      <div className='underline'>
+      </div>
       <h5>
         &copy; {new Date().getFullYear()}
         <span> Tomper Wear </span>

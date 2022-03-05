@@ -35,17 +35,14 @@ const Wrapper = styled.footer`
     margin-bottom:1.5rem;
     margin-top:1rem;
   }
-  hr{
-    height:1rem;
-    color: white;
-    width:95%;
+  .underline {
+    width: 95%;
+    height: 1px;
+    margin-bottom: 1rem;
+    background: var(--clr-grey-7);
   }
   svg{
-    height:2.4rem;
-    width:2.4rem;
     margin:0.7rem;
-    background-color:white;
-    border-radius:10px;
   }
 
   @media (min-width: 776px) {
