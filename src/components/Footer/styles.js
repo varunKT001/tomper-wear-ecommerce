@@ -12,28 +12,32 @@ const Wrapper = styled.footer`
     color: var(--clr-primary-5);
   }
   h5 {
-    color: var(--clr-grey-7);
+    color: var(--clr-grey-6);
     font-weight: 400;
     text-transform: none;
     line-height: 1.25;
   }
-  .footerLinks a{
+  .footerLinks a {
     text-decoration: none;
-    color: var(--clr-grey-7);
-    padding:0.8rem;
+    color: var(--clr-grey-6);
+    padding: 0.8rem;
   }
-  .footerSocialLinks, .footerLinks{
-    display:flex;
+  .footerLinks a:hover {
+    color: var(--clr-primary-5);
+  }
+  .footerSocialLinks,
+  .footerLinks {
+    display: flex;
     flex-direction: row;
-    flex-wrap:wrap;
-    justify-content:center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  .footerSocialLinks{
-    margin-top:1.5rem;
+  .footerSocialLinks {
+    margin-top: 1.5rem;
   }
-  .footerLinks{
-    margin-bottom:1.5rem;
-    margin-top:1rem;
+  .footerLinks {
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
   }
   .underline {
     width: 95%;
@@ -41,8 +45,8 @@ const Wrapper = styled.footer`
     margin-bottom: 1rem;
     background: var(--clr-grey-7);
   }
-  svg{
-    margin:0.7rem;
+  svg {
+    margin: 0.7rem;
   }
 
   @media (min-width: 776px) {
