@@ -17,7 +17,7 @@
     "react-dom": "^17.0.1",
     "react-icons": "^3.11.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.0",
+    "react-scripts": "^5.0.0",
     "react-toastify": "^8.1.0",
     "stripe": "^8.130.0",
     "styled-components": "^5.2.1",
@@ -27,9 +27,7 @@
     "start": "react-scripts start",
     "build": "CI= react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "netlify": "netlify dev",
-    "dev": "netlify dev"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -48,8 +46,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "netlify-cli": "^3.10.1"
   }
 }
