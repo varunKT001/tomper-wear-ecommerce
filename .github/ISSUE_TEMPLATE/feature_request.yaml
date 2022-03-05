@@ -1,6 +1,6 @@
 name: Feature Request
 description: Request/Suggest any feature you think is missing
-title: 'Title: '
+title: 'Feature Request: '
 labels: 'Feature Request'
 body:
   - type: textarea #description
