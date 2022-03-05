@@ -27,7 +27,7 @@
    npm install
    ```
 
-3. Rename the file `.env.sample` to `.env`.
+3. Create a `.env` file and copy-paste the contents of `.env.sample` in it.
 
 4. Start the dev server using :
 
