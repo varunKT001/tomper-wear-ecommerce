@@ -12,15 +12,18 @@ const Wrapper = styled.footer`
     color: var(--clr-primary-5);
   }
   h5 {
-    color: var(--clr-grey-7);
+    color: var(--clr-grey-6);
     font-weight: 400;
     text-transform: none;
     line-height: 1.25;
   }
   .footerLinks a{
     text-decoration: none;
-    color: var(--clr-grey-7);
+    color: var(--clr-grey-6);
     padding:0.8rem;
+  }
+  .footerLinks a:hover{
+    color:var(--clr-primary-5);
   }
   .footerSocialLinks, .footerLinks{
     display:flex;
@@ -39,7 +42,7 @@ const Wrapper = styled.footer`
     width: 95%;
     height: 1px;
     margin-bottom: 1rem;
-    background: var(--clr-grey-7);
+    background: var(--clr-grey-6);
   }
   svg{
     margin:0.7rem;
