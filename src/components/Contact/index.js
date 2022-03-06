@@ -3,6 +3,7 @@ import Wrapper from './styles';
 import { Link } from 'react-router-dom';
 import { useForm } from '@formspree/react';
 import { useUserContext } from '../../context/user_context';
+import Button from '../Button';
 
 const Contact = () => {
   const { currentUser } = useUserContext();
@@ -46,13 +47,13 @@ const Contact = () => {
               required
             />
             {currentUser ? (
-              <button
+              <Button
                 type='submit'
                 className='btn submit-btn'
                 disabled={state.submitting}
               >
                 send feedback
-              </button>
+              </Button>
             ) : (
               <Link to='/login' className='btn submit-btn'>
                 login

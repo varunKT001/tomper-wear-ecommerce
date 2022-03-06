@@ -4,7 +4,7 @@ import { useUserContext } from '../../context/user_context';
 import { Link, useHistory } from 'react-router-dom';
 import useMounted from '../../hooks/useMounted';
 import { toast } from 'react-toastify';
-import Button from '../../components/LoadingButton';
+import Button from '../../components/Button';
 
 function RegisterPage() {
   const history = useHistory();

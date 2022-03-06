@@ -6,8 +6,8 @@ import { useUserContext } from '../../context/user_context';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/cart_context';
 import { useProductsContext } from '../../context/products_context';
-import Button from '../../components/LoadingButton';
-import Icon from '../../components/LoadingButton/LoadingIcon';
+import Button from '../../components/Button';
+import Icon from '../../components/Button/LoadingIcon';
 
 function ProfilePage() {
   const {
@@ -102,7 +102,7 @@ function ProfilePage() {
         <img src={image} alt='profile' />
 
         <label className='btn' htmlFor='profile'>
-          {loading ? <Icon /> : 'upload new'}
+          upload new
         </label>
 
         <input
@@ -161,12 +161,7 @@ function ProfilePage() {
           />
         </div>
 
-        <Button
-          disabled={loading}
-          type='submit'
-          disabled={loading}
-          className='btn submit-btn'
-        >
+        <Button disabled={loading} type='submit' className='btn submit-btn'>
           change password
         </Button>
       </form>

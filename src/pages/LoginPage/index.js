@@ -4,7 +4,7 @@ import { useUserContext } from '../../context/user_context';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useMounted from '../../hooks/useMounted';
 import { toast } from 'react-toastify';
-import Button from '../../components/LoadingButton';
+import Button from '../../components/Button';
 
 function LoginPage() {
   const history = useHistory();
@@ -82,36 +82,36 @@ function LoginPage() {
             </Link>
           </div>
           {/* end links */}
-         
-            <Button disabled={isSubmitting} type='submit' className='btn login-btn'>
-              login
-            </Button>
-        
+
+          <Button
+            disabled={isSubmitting}
+            type='submit'
+            className='btn login-btn'
+          >
+            login
+          </Button>
 
           <div className='seperator'>
             <hr />
             <span>or</span>
           </div>
-         
 
-     
-            <Button
-              type='button'
-              className='btn google-btn'
-              disabled={isSubmitting} 
-              onClick={() => {
-                signInWithGoogle()
-                  .then((user) => {
-                    history.push('/');
-                  })
-                  .catch((err) => {
-                    toast.error(`Error: ${err.message}`);
-                  });
-              }}
-            >
-              sign in with google
-            </Button>
-          
+          <Button
+            type='button'
+            className='btn google-btn'
+            disabled={isSubmitting}
+            onClick={() => {
+              signInWithGoogle()
+                .then((user) => {
+                  history.push('/');
+                })
+                .catch((err) => {
+                  toast.error(`Error: ${err.message}`);
+                });
+            }}
+          >
+            sign in with google
+          </Button>
         </form>
       </div>
     </Wrapper>

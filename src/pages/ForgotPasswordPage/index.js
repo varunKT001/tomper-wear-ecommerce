@@ -3,7 +3,7 @@ import Wrapper from './styles';
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../../context/user_context';
 import { toast } from 'react-toastify';
-import Button from '../../components/LoadingButton';
+import Button from '../../components/Button';
 
 function ForgotPasswordPage() {
   const { forgotPassword } = useUserContext();

@@ -5,6 +5,7 @@ import Wrapper from './styles';
 import { useProductsContext } from '../../context/products_context';
 import { useUserContext } from '../../context/user_context';
 import ReviewStars from '../ReviewStars/';
+import Button from '../Button';
 
 function ReviewModal({ product }) {
   const { _id: id, reviews } = product;
@@ -65,9 +66,9 @@ function ReviewModal({ product }) {
           />
           {currentUser ? (
             <div className='btn-container'>
-              <button disabled={loading} className='btn' onClick={handleSubmit}>
+              <Button disabled={loading} className='btn' onClick={handleSubmit}>
                 review
-              </button>
+              </Button>
               <button className='btn btn-outline' onClick={onClose}>
                 cancel
               </button>
