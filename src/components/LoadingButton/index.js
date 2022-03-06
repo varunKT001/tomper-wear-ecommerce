@@ -1,12 +1,12 @@
 import React from 'react';
 import Icon from './LoadingIcon';
-import LoadingButtonWrapper from './styles';
-const LoadingButton = () => {
+
+const Button = ({ disabled, children, ...rest }) => {
   return (
-    <LoadingButtonWrapper type='button' className='loader' disabled="true">
-      <Icon />
-    </LoadingButtonWrapper>
+    <button disabled={disabled} {...rest}>
+      {disabled ? <Icon /> : children}
+    </button>
   );
 };
 
-export default LoadingButton;
+export default Button;

@@ -6,7 +6,8 @@ import { useUserContext } from '../../context/user_context';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/cart_context';
 import { useProductsContext } from '../../context/products_context';
-import LoadingButton from '../../components/LoadingButton';
+import Button from '../../components/LoadingButton';
+import Icon from '../../components/LoadingButton/LoadingIcon';
 
 function ProfilePage() {
   const {
@@ -99,12 +100,11 @@ function ProfilePage() {
       <PageHero title='profile' />
       <div className='profile-img'>
         <img src={image} alt='profile' />
-        {loading && <LoadingButton />}
-        {!loading && (
-          <label className='btn' htmlFor='profile'>
-            upload new
-          </label>
-        )}
+
+        <label className='btn' htmlFor='profile'>
+          {loading ? <Icon /> : 'upload new'}
+        </label>
+
         <input
           className='file-input'
           disabled={loading}
@@ -130,12 +130,10 @@ function ProfilePage() {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        {loading && <LoadingButton />}
-        {!loading && (
-          <button type='submit' className='btn submit-btn'>
-            save
-          </button>
-        )}
+
+        <Button disabled={loading} type='submit' className='btn submit-btn'>
+          save
+        </Button>
       </form>
       <div className='seperator'>
         <hr />
@@ -162,12 +160,15 @@ function ProfilePage() {
             onChange={(e) => setConfirmNewPassword(e.target.value)}
           />
         </div>
-        {loading && <LoadingButton />}
-        {!loading && (
-          <button type='submit' disabled={loading} className='btn submit-btn'>
-            change password
-          </button>
-        )}
+
+        <Button
+          disabled={loading}
+          type='submit'
+          disabled={loading}
+          className='btn submit-btn'
+        >
+          change password
+        </Button>
       </form>
       <div className='seperator'>
         <hr />

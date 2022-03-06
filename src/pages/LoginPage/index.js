@@ -4,7 +4,7 @@ import { useUserContext } from '../../context/user_context';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useMounted from '../../hooks/useMounted';
 import { toast } from 'react-toastify';
-import LoadingButton from '../../components/LoadingButton';
+import Button from '../../components/LoadingButton';
 
 function LoginPage() {
   const history = useHistory();
@@ -82,23 +82,23 @@ function LoginPage() {
             </Link>
           </div>
           {/* end links */}
-          {isSubmitting && <LoadingButton />}
-          {!isSubmitting && (
-            <button type='submit' className='btn login-btn'>
+         
+            <Button disabled={isSubmitting} type='submit' className='btn login-btn'>
               login
-            </button>
-          )}
+            </Button>
+        
 
           <div className='seperator'>
             <hr />
             <span>or</span>
           </div>
-          {isSubmitting && <LoadingButton />}
+         
 
-          {!isSubmitting && (
-            <button
+     
+            <Button
               type='button'
               className='btn google-btn'
+              disabled={isSubmitting} 
               onClick={() => {
                 signInWithGoogle()
                   .then((user) => {
@@ -110,8 +110,8 @@ function LoginPage() {
               }}
             >
               sign in with google
-            </button>
-          )}
+            </Button>
+          
         </form>
       </div>
     </Wrapper>

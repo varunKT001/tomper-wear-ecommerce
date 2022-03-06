@@ -4,7 +4,7 @@ import { useUserContext } from '../../context/user_context';
 import { Link, useHistory } from 'react-router-dom';
 import useMounted from '../../hooks/useMounted';
 import { toast } from 'react-toastify';
-import LoadingButton from '../../components/LoadingButton';
+import Button from '../../components/LoadingButton';
 
 function RegisterPage() {
   const history = useHistory();
@@ -86,12 +86,15 @@ function RegisterPage() {
             />
           </div>
           {/* end pass */}
-          {isSubmitting && <LoadingButton />}
-          {!isSubmitting && (
-            <button type='submit' className='btn register-btn'>
-              register
-            </button>
-          )}
+
+          <Button
+            disabled={isSubmitting}
+            type='submit'
+            className='btn register-btn'
+          >
+            register
+          </Button>
+
           {/* links */}
           <div className='links'>
             <Link to='/login' className='link'>
@@ -103,24 +106,23 @@ function RegisterPage() {
             <hr />
             <span>or</span>
           </div>
-          {isSubmitting && <LoadingButton />}
-          {!isSubmitting && (
-            <button
-              type='button'
-              className='btn google-btn'
-              onClick={() => {
-                signInWithGoogle()
-                  .then((user) => {
-                    history.push('/');
-                  })
-                  .catch((err) => {
-                    toast.error(`Error: ${err.message}`);
-                  });
-              }}
-            >
-              sign in with google
-            </button>
-          )}
+
+          <Button
+            type='button'
+            className='btn google-btn'
+            disabled={isSubmitting}
+            onClick={() => {
+              signInWithGoogle()
+                .then((user) => {
+                  history.push('/');
+                })
+                .catch((err) => {
+                  toast.error(`Error: ${err.message}`);
+                });
+            }}
+          >
+            sign in with google
+          </Button>
         </form>
       </div>
     </Wrapper>
