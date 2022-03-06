@@ -6,6 +6,7 @@ import { useUserContext } from '../../context/user_context';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/cart_context';
 import { useProductsContext } from '../../context/products_context';
+import LoadingButton from '../../components/LoadingButton';
 
 function ProfilePage() {
   const {
@@ -98,9 +99,12 @@ function ProfilePage() {
       <PageHero title='profile' />
       <div className='profile-img'>
         <img src={image} alt='profile' />
-        <label className='btn' htmlFor='profile'>
-          upload new
-        </label>
+        {loading && <LoadingButton />}
+        {!loading && (
+          <label className='btn' htmlFor='profile'>
+            upload new
+          </label>
+        )}
         <input
           className='file-input'
           disabled={loading}
@@ -126,9 +130,12 @@ function ProfilePage() {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <button type='submit' disabled={loading} className='btn submit-btn'>
-          save
-        </button>
+        {loading && <LoadingButton />}
+        {!loading && (
+          <button type='submit' className='btn submit-btn'>
+            save
+          </button>
+        )}
       </form>
       <div className='seperator'>
         <hr />
@@ -155,9 +162,12 @@ function ProfilePage() {
             onChange={(e) => setConfirmNewPassword(e.target.value)}
           />
         </div>
-        <button type='submit' disabled={loading} className='btn submit-btn'>
-          change password
-        </button>
+        {loading && <LoadingButton />}
+        {!loading && (
+          <button type='submit' disabled={loading} className='btn submit-btn'>
+            change password
+          </button>
+        )}
       </form>
       <div className='seperator'>
         <hr />

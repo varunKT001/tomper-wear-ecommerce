@@ -3,6 +3,7 @@ import Wrapper from './styles';
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../../context/user_context';
 import { toast } from 'react-toastify';
+import LoadingButton from '../../components/LoadingButton';
 
 function ForgotPasswordPage() {
   const { forgotPassword } = useUserContext();
@@ -51,13 +52,12 @@ function ForgotPasswordPage() {
             />
           </div>
           {/* end email */}
-          <button
-            type='submit'
-            className='btn forgot-btn'
-            disabled={isSubmitting}
-          >
-            submit
-          </button>
+          {isSubmitting && <LoadingButton />}
+          {!isSubmitting && (
+            <button type='submit' className='btn forgot-btn'>
+              submit
+            </button>
+          )}
           <div className='seperator'>
             <hr />
             <span>or</span>
