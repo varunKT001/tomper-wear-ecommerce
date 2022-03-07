@@ -4,7 +4,7 @@ import { useUserContext } from '../../context/user_context';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useMounted from '../../hooks/useMounted';
 import { toast } from 'react-toastify';
-import Button from '../../components/Button';
+import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 
 function LoginPage() {
   const history = useHistory();
@@ -14,6 +14,7 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,6 +37,10 @@ function LoginPage() {
       })
       .finally(() => mounted.current && setIsSubmitting(false));
   };
+  
+  function togglePasswordVisibility() {
+    setVisible(!visible);
+  }
 
   useEffect(() => {
     document.title = 'Tomper Wear | Login';
@@ -61,15 +66,19 @@ function LoginPage() {
           </div>
           {/* end email */}
           {/* pass */}
-          <div className='form-control'>
+          <div className='form-control password'>
             <input
-              type='password'
+              type={!visible ? 'password' : 'text'}
               name='password'
               className='input'
               placeholder='Password'
               value={password}
+              autoComplete='off'
               onChange={(e) => setPassword(e.target.value)}
             />
+            <div onClick={togglePasswordVisibility} className='togglebtn'>
+              {!visible ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
+            </div>
           </div>
           {/* end pass */}
           {/* links */}
@@ -82,20 +91,17 @@ function LoginPage() {
             </Link>
           </div>
           {/* end links */}
-
-          <Button
-            disabled={isSubmitting}
+          <button
             type='submit'
             className='btn login-btn'
+            disabled={isSubmitting}
           >
             login
-          </Button>
-
+          </button>
           <div className='seperator'>
             <hr />
             <span>or</span>
           </div>
-
           <button
             type='button'
             className='btn google-btn'
