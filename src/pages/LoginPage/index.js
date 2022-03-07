@@ -96,7 +96,7 @@ function LoginPage() {
             <span>or</span>
           </div>
 
-          <Button
+          <button
             type='button'
             className='btn google-btn'
             disabled={isSubmitting}
@@ -111,7 +111,7 @@ function LoginPage() {
             }}
           >
             sign in with google
-          </Button>
+          </button>
         </form>
       </div>
     </Wrapper>

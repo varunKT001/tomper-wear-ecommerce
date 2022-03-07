@@ -5,7 +5,6 @@ function Icon() {
     <svg
       xmlns='http://www.w3.org/2000/svg'
       style={{ margin: 'auto' ,width: '1.025rem'}}
-      width='30'
       height='30'
       display='block'
       preserveAspectRatio='xMidYMid'

@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/cart_context';
 import { useProductsContext } from '../../context/products_context';
 import Button from '../../components/Button';
-import Icon from '../../components/Button/LoadingIcon';
 
 function ProfilePage() {
   const {

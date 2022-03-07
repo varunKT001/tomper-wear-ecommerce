@@ -107,7 +107,7 @@ function RegisterPage() {
             <span>or</span>
           </div>
 
-          <Button
+          <button
             type='button'
             className='btn google-btn'
             disabled={isSubmitting}
@@ -122,7 +122,7 @@ function RegisterPage() {
             }}
           >
             sign in with google
-          </Button>
+          </button>
         </form>
       </div>
     </Wrapper>
