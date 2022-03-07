@@ -4,6 +4,7 @@ import { useUserContext } from '../../context/user_context';
 import { Link, useHistory } from 'react-router-dom';
 import useMounted from '../../hooks/useMounted';
 import { toast } from 'react-toastify';
+import Button from '../../components/Button';
 
 function RegisterPage() {
   const history = useHistory();
@@ -85,13 +86,15 @@ function RegisterPage() {
             />
           </div>
           {/* end pass */}
-          <button
+
+          <Button
+            disabled={isSubmitting}
             type='submit'
             className='btn register-btn'
-            disabled={isSubmitting}
           >
             register
-          </button>
+          </Button>
+
           {/* links */}
           <div className='links'>
             <Link to='/login' className='link'>
@@ -103,6 +106,7 @@ function RegisterPage() {
             <hr />
             <span>or</span>
           </div>
+
           <button
             type='button'
             className='btn google-btn'

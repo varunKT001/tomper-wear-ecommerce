@@ -4,6 +4,7 @@ import { useUserContext } from '../../context/user_context';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useMounted from '../../hooks/useMounted';
 import { toast } from 'react-toastify';
+import Button from '../../components/Button';
 
 function LoginPage() {
   const history = useHistory();
@@ -81,17 +82,20 @@ function LoginPage() {
             </Link>
           </div>
           {/* end links */}
-          <button
+
+          <Button
+            disabled={isSubmitting}
             type='submit'
             className='btn login-btn'
-            disabled={isSubmitting}
           >
             login
-          </button>
+          </Button>
+
           <div className='seperator'>
             <hr />
             <span>or</span>
           </div>
+
           <button
             type='button'
             className='btn google-btn'
