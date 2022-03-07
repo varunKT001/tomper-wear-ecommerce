@@ -235,8 +235,8 @@ This is privilege is ideal for the delivery-agent(s).
       <br/>
       2020IMT-112
       <br/>
-      <a href="https://github.com/varunKT001">LinkedIn</a>
-      <a href="">Github</a>
+      <a href="https://www.linkedin.com/in/varun-tiwari-454591178/">LinkedIn</a>
+      <a href="https://github.com/varunKT001">Github</a>
     </td> 
   </tr>
 </table>
