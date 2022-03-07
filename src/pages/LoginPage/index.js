@@ -13,6 +13,7 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,6 +36,9 @@ function LoginPage() {
       })
       .finally(() => mounted.current && setIsSubmitting(false));
   };
+  function togglePasswordVisibility() {
+    setVisible(!visible);
+  }
 
   useEffect(() => {
     document.title = 'Tomper Wear | Login';
@@ -60,15 +64,23 @@ function LoginPage() {
           </div>
           {/* end email */}
           {/* pass */}
-          <div className='form-control'>
+          <div className='form-control password'>
             <input
-              type='password'
+              type={!visible ? 'password' : 'text'}
               name='password'
               className='input'
               placeholder='Password'
               value={password}
+              autoComplete='off'
               onChange={(e) => setPassword(e.target.value)}
             />
+            <div onClick={togglePasswordVisibility} className='togglebtn'>
+              {!visible ? (
+                <i class='zmdi zmdi-eye-off material-icons-name'></i>
+              ) : (
+                <i class='zmdi zmdi-eye material-icons-name'></i>
+              )}
+            </div>
           </div>
           {/* end pass */}
           {/* links */}

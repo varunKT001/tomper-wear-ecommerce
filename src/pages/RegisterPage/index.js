@@ -13,6 +13,9 @@ function RegisterPage() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+  const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] =
+    useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,6 +43,12 @@ function RegisterPage() {
       .finally(() => mounted.current && setIsSubmitting(false));
   };
 
+  function togglePasswordVisibility() {
+    setIsVisiblePassword(!isVisiblePassword);
+  }
+  function toggleConfirmPasswordVisibility() {
+    setIsVisibleConfirmPassword(!isVisibleConfirmPassword);
+  }
   useEffect(() => {
     document.title = 'Tomper Wear | Register';
   }, []);
@@ -64,25 +73,44 @@ function RegisterPage() {
           </div>
           {/* end email */}
           {/* pass */}
-          <div className='form-control'>
+          <div className='form-control password'>
             <input
-              type='password'
+              type={!isVisiblePassword ? 'password' : 'text'}
               name='password'
               className='input'
               placeholder='Password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+
+            <div onClick={togglePasswordVisibility} className='togglebtn'>
+              {!isVisiblePassword ? (
+                <i class='zmdi zmdi-eye-off material-icons-name'></i>
+              ) : (
+                <i class='zmdi zmdi-eye material-icons-name'></i>
+              )}
+            </div>
           </div>
-          <div className='form-control'>
+          <div className='form-control password'>
             <input
-              type='password'
+              type={!isVisibleConfirmPassword ? 'password' : 'text'}
               name='confirmPassword'
               className='input'
               placeholder='Confirm Password'
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+
+            <div
+              onClick={toggleConfirmPasswordVisibility}
+              className='togglebtn'
+            >
+              {!isVisibleConfirmPassword ? (
+                <i class='zmdi zmdi-eye-off material-icons-name'></i>
+              ) : (
+                <i class='zmdi zmdi-eye material-icons-name'></i>
+              )}
+            </div>
           </div>
           {/* end pass */}
           <button
