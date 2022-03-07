@@ -25,7 +25,12 @@ const Wrapper = styled.section`
     .btn-container {
       margin-top: 0.5rem;
       display: flex;
+      a {
+        width: 100%;
+        text-align: center;
+      }
       button {
+        width: 50%;
         margin-right: 0.5rem;
       }
     }
@@ -34,6 +39,18 @@ const Wrapper = styled.section`
       border: 1px solid var(--clr-primary-5);
       color: var(--clr-primary-5);
       box-shadow: none;
+    }
+  }
+  @media (min-width: 992px) {
+    .form {
+      .btn-container {
+        a {
+          width: fit-content;
+        }
+        button {
+          width: 20%;
+        }
+      }
     }
   }
 `;

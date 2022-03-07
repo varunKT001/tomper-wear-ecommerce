@@ -40,8 +40,15 @@ const Wrapper = styled.section`
     font-size: 1.5rem;
     color: var(--clr-green-dark);
   }
+  a.submit-btn {
+    width: 100%;
+    text-align: center;
+  }
   @media (min-width: 992px) {
     .submit-btn {
+      width: 35%;
+    }
+    a.submit-btn {
       width: fit-content;
     }
     .feedback-info {
@@ -64,7 +71,7 @@ const Wrapper = styled.section`
       margin-bottom: 0;
     }
     .submit-btn {
-      width: fit-content;
+      width: 35%;
     }
   }
 `;
