@@ -38,6 +38,7 @@ const Wrapper = styled.section`
     .password {
       display: flex;
       background: var(--clr-grey-10);
+      border-radius: var(--radius);
     }
     .togglebtn {
       background: var(--clr-grey-10);

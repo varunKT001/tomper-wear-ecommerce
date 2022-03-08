@@ -5,6 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import useMounted from '../../hooks/useMounted';
 import { toast } from 'react-toastify';
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
+import Button from '../../components/Button';
 
 function RegisterPage() {
   const history = useHistory();
@@ -112,13 +113,13 @@ function RegisterPage() {
             </div>
           </div>
           {/* end pass */}
-          <button
+          <Button
             type='submit'
             className='btn register-btn'
             disabled={isSubmitting}
           >
             register
-          </button>
+          </Button>
           {/* links */}
           <div className='links'>
             <Link to='/login' className='link'>

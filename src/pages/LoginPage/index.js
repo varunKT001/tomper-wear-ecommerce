@@ -5,6 +5,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import useMounted from '../../hooks/useMounted';
 import { toast } from 'react-toastify';
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
+import Button from '../../components/Button';
 
 function LoginPage() {
   const history = useHistory();
@@ -91,13 +92,13 @@ function LoginPage() {
             </Link>
           </div>
           {/* end links */}
-          <button
+          <Button
             type='submit'
             className='btn login-btn'
             disabled={isSubmitting}
           >
             login
-          </button>
+          </Button>
           <div className='seperator'>
             <hr />
             <span>or</span>

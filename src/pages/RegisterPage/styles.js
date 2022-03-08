@@ -38,12 +38,14 @@ const Wrapper = styled.section`
     .password {
       display: flex;
       background: var(--clr-grey-10);
+      border-radius: var(--radius);
     }
     .togglebtn {
       background: var(--clr-grey-10);
       display: inline-block;
       min-width: min-content;
       margin: 0.5rem;
+      border-radius: var(--radius);
     }
     .links {
       width: 100%;
