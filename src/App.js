@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Navbar, Sidebar, Footer, Toast, ErrorBoundary } from './components';
+import { Navbar, Sidebar, Footer, Toast, ScrollToTop, ErrorBoundary } from './components';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   Home,
@@ -24,6 +24,7 @@ function App() {
     <Router>
       <Toast />
       <Navbar />
+      <ScrollToTop />
       <Sidebar />
       <ErrorBoundary>
         <Switch>

@@ -25,6 +25,7 @@ import ReviewModal from './ReviewModal/';
 import ReviewStars from './ReviewStars/';
 import UserReview from './UserReview/';
 import ErrorBoundary from './ErrorBoundary/';
+import ScrollToTop from './ScrollToTop';
 export {
   FeaturedProducts,
   Navbar,
@@ -52,5 +53,6 @@ export {
   ReviewModal,
   ReviewStars,
   UserReview,
+  ScrollToTop,
   ErrorBoundary,
 };
