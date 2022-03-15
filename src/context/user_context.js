@@ -11,6 +11,8 @@ import {
   confirmPasswordReset,
   updateProfile,
   updatePassword,
+  EmailAuthProvider,
+  reauthenticateWithCredential,
 } from 'firebase/auth';
 import { upload_url, default_profile_image } from '../utils/constants';
 import axios from 'axios';
@@ -59,7 +61,17 @@ export const UserProvider = ({ children }) => {
     });
   };
 
+  const reauthenticateUser = async (existingPassword) => {
+    const credentials = EmailAuthProvider.credential(
+      currentUser.email,
+      existingPassword
+    );
+    return reauthenticateWithCredential(currentUser,credentials);
+  }
+
   const updateUserProfilePassword = async (newPassword) => {
+    
+    
     return updatePassword(currentUser, newPassword);
   };
 
@@ -107,6 +119,7 @@ export const UserProvider = ({ children }) => {
         updateUserProfileName,
         uploadProfileImage,
         updateUserProfilePassword,
+        reauthenticateUser,
       }}
     >
       {children}

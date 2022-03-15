@@ -16,11 +16,13 @@ function ProfilePage() {
     updateUserProfileName,
     uploadProfileImage,
     updateUserProfilePassword,
+    reauthenticateUser,
   } = useUserContext();
   const { clearCart } = useCartContext();
   const { closeSidebar } = useProductsContext();
   const [image, setImage] = useState(photoURL);
   const [name, setName] = useState(displayName || 'USER');
+  const [exisitingPassword, setExistingPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -73,21 +75,30 @@ function ProfilePage() {
 
   const handleSubmitPassword = async (e) => {
     e.preventDefault();
-    if (newPassword.length < 6) {
-      return toast.error('Password should be atleast 6 characters');
-    }
-    if (newPassword !== confirmNewPassword) {
-      return toast.error('Passwords do not match');
-    }
-    setLoading(true);
-    try {
-      // eslint-disable-next-line
-      const response_2 = await updateUserProfilePassword(confirmNewPassword);
-      toast.success('Profile password changed successfully');
-    } catch (error) {
-      toast.error(`Error: ${error.message}`);
-    }
-    setLoading(false);
+
+    reauthenticateUser(exisitingPassword)
+      .then(() => {
+        if (newPassword.length < 6) {
+          return toast.error('Password should be atleast 6 characters');
+        }
+        if (newPassword !== confirmNewPassword) {
+          return toast.error('Passwords do not match');
+        }
+        setLoading(true);
+
+        updateUserProfilePassword(confirmNewPassword)
+          .then(() => {
+            toast.success('Profile password changed successfully');
+          })
+          .catch((error) => {
+            toast.error(`Error: ${error.message}`);
+          });
+        setLoading(false);
+      })
+      .catch((e) => {
+        console.log(exisitingPassword);
+        return toast.error('Current password do not match');
+      });
   };
 
   useEffect(() => {
@@ -139,6 +150,16 @@ function ProfilePage() {
         <span>Password</span>
       </div>
       <form onSubmit={handleSubmitPassword}>
+        <div className='form-control'>
+          <input
+            type='password'
+            name='password'
+            className='input'
+            placeholder='Current password'
+            value={exisitingPassword}
+            onChange={(e) => setExistingPassword(e.target.value)}
+          />
+        </div>
         <div className='form-control'>
           <input
             type='password'
