@@ -66,12 +66,10 @@ export const UserProvider = ({ children }) => {
       currentUser.email,
       existingPassword
     );
-    return reauthenticateWithCredential(currentUser,credentials);
-  }
+    return reauthenticateWithCredential(currentUser, credentials);
+  };
 
   const updateUserProfilePassword = async (newPassword) => {
-    
-    
     return updatePassword(currentUser, newPassword);
   };
 

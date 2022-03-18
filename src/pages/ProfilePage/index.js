@@ -75,30 +75,27 @@ function ProfilePage() {
 
   const handleSubmitPassword = async (e) => {
     e.preventDefault();
+    try {
+      const response_2 = await reauthenticateUser(exisitingPassword);
+      if (newPassword.length < 6) {
+        return toast.error('Password should be atleast 6 characters');
+      }
+      if (newPassword !== confirmNewPassword) {
+        return toast.error('Passwords do not match');
+      }
+      setLoading(true);
 
-    reauthenticateUser(exisitingPassword)
-      .then(() => {
-        if (newPassword.length < 6) {
-          return toast.error('Password should be atleast 6 characters');
-        }
-        if (newPassword !== confirmNewPassword) {
-          return toast.error('Passwords do not match');
-        }
-        setLoading(true);
-
-        updateUserProfilePassword(confirmNewPassword)
-          .then(() => {
-            toast.success('Profile password changed successfully');
-          })
-          .catch((error) => {
-            toast.error(`Error: ${error.message}`);
-          });
-        setLoading(false);
-      })
-      .catch((e) => {
-        console.log(exisitingPassword);
-        return toast.error('Current password do not match');
-      });
+      updateUserProfilePassword(confirmNewPassword)
+        .then(() => {
+          toast.success('Profile password changed successfully');
+        })
+        .catch((error) => {
+          toast.error(`Error: ${error.message}`);
+        });
+      setLoading(false);
+    } catch (error) {
+      return toast.error('Current password do not match');
+    }
   };
 
   useEffect(() => {
