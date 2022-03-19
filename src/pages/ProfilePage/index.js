@@ -87,7 +87,7 @@ function ProfilePage() {
       const response_3 = await updateUserProfilePassword(confirmNewPassword);
       toast.success('Profile password changed successfully');
     } catch (error) {
-      toast.error('Current password do not match');
+      toast.error(`Error: ${error.message}`);
     }
     setLoading(false);
   };
