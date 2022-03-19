@@ -25,6 +25,17 @@ const Wrapper = styled.section`
   .file-input {
     display: none;
   }
+  .password {
+    display: flex;
+    background: var(--clr-grey-10);
+    border-radius: var(--radius);
+  }
+  .togglebtn {
+    background: var(--clr-grey-10);
+    display: inline-block;
+    min-width: min-content;
+    margin: 0.5rem;
+  }
   form {
     min-width: 300px;
     max-width: 400px;
