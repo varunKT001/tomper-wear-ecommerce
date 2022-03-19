@@ -84,14 +84,10 @@ function ProfilePage() {
       if (newPassword !== confirmNewPassword) {
         return toast.error('Passwords do not match');
       }
-      try {
-        const response_3 = await updateUserProfilePassword(confirmNewPassword);
-        toast.success('Profile password changed successfully');
-      } catch (error) {
-        return toast.error(`Error: ${error.message}`);
-      }
+      const response_3 = await updateUserProfilePassword(confirmNewPassword);
+      toast.success('Profile password changed successfully');
     } catch (error) {
-      return toast.error('Current password do not match');
+      toast.error('Current password do not match');
     }
     setLoading(false);
   };
