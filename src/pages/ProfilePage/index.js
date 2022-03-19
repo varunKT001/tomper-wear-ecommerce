@@ -75,6 +75,7 @@ function ProfilePage() {
 
   const handleSubmitPassword = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response_2 = await reauthenticateUser(exisitingPassword);
       if (newPassword.length < 6) {
@@ -83,19 +84,16 @@ function ProfilePage() {
       if (newPassword !== confirmNewPassword) {
         return toast.error('Passwords do not match');
       }
-      setLoading(true);
-
-      updateUserProfilePassword(confirmNewPassword)
-        .then(() => {
-          toast.success('Profile password changed successfully');
-        })
-        .catch((error) => {
-          toast.error(`Error: ${error.message}`);
-        });
-      setLoading(false);
+      try {
+        const response_3 = await updateUserProfilePassword(confirmNewPassword);
+        toast.success('Profile password changed successfully');
+      } catch (error) {
+        return toast.error(`Error: ${error.message}`);
+      }
     } catch (error) {
       return toast.error('Current password do not match');
     }
+    setLoading(false);
   };
 
   useEffect(() => {
