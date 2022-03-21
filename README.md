@@ -224,6 +224,21 @@ This is privilege is ideal for the delivery-agent(s).
   </tr>
 </table>
 
+## 🙌 Other events
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/posts/aasf-iiitmg_github-winterprojects-learning-activity-6909474506340282368-GYq5">
+        <img src="./assets/winter-projects.png" width="350px" alt="GSSoC'22">
+        <img src="./assets/best-web-app.jpg" width="350px" alt="GSSoC'22">
+        <br/>
+        Awarded as the <b>Best Web App</b> in <b>Winter Projects</b> organized by <b>GDSC</b> and <b>AASF</b>, IIITM, Gwalior
+      </a>
+    </td> 
+  </tr>
+</table>
+
 ## 😎 Team Members
 
 <table>
