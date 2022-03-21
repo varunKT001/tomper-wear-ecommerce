@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/cart_context';
 import { useProductsContext } from '../../context/products_context';
 import Button from '../../components/Button';
+import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 
 function ProfilePage() {
   const {
@@ -26,6 +27,11 @@ function ProfilePage() {
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] =
+    useState(false);
+  const [isVisibleNewPassword, setIsVisibleNewPassword] = useState(false);
+  const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] =
+    useState(false);
 
   const handleImage = (e) => {
     const file = e.target.files[0];
@@ -141,35 +147,65 @@ function ProfilePage() {
         <span>Password</span>
       </div>
       <form onSubmit={handleSubmitPassword}>
-        <div className='form-control'>
+        <div className='form-control password'>
           <input
-            type='password'
+            type={isVisibleCurrentPassword ? 'text' : 'password'}
             name='password'
             className='input'
             placeholder='Current password'
             value={exisitingPassword}
             onChange={(e) => setExistingPassword(e.target.value)}
           />
+          <div
+            onClick={(e) =>
+              setIsVisibleCurrentPassword(!isVisibleCurrentPassword)
+            }
+            className='togglebtn'
+          >
+            {!isVisibleCurrentPassword ? (
+              <BsFillEyeSlashFill />
+            ) : (
+              <BsFillEyeFill />
+            )}
+          </div>
         </div>
-        <div className='form-control'>
+        <div className='form-control password'>
           <input
-            type='password'
+            type={isVisibleNewPassword ? 'text' : 'password'}
             name='password'
             className='input'
             placeholder='New password'
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
           />
+          <div
+            onClick={(e) => setIsVisibleNewPassword(!isVisibleNewPassword)}
+            className='togglebtn'
+          >
+            {!isVisibleNewPassword ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
+          </div>
         </div>
-        <div className='form-control'>
+        <div className='form-control password'>
           <input
-            type='password'
+            type={isVisibleConfirmPassword ? 'text' : 'password'}
             name='password'
             className='input'
             placeholder='Confirm new password'
             value={confirmNewPassword}
             onChange={(e) => setConfirmNewPassword(e.target.value)}
           />
+          <div
+            onClick={(e) =>
+              setIsVisibleConfirmPassword(!isVisibleConfirmPassword)
+            }
+            className='togglebtn'
+          >
+            {!isVisibleConfirmPassword ? (
+              <BsFillEyeSlashFill />
+            ) : (
+              <BsFillEyeFill />
+            )}
+          </div>
         </div>
 
         <Button disabled={loading} type='submit' className='btn submit-btn'>
