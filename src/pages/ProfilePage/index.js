@@ -83,6 +83,7 @@ function ProfilePage() {
     e.preventDefault();
     setLoading(true);
     try {
+      // eslint-disable-next-line
       const response_2 = await reauthenticateUser(exisitingPassword);
       if (newPassword.length < 6) {
         return toast.error('Password should be atleast 6 characters');
@@ -90,6 +91,7 @@ function ProfilePage() {
       if (newPassword !== confirmNewPassword) {
         return toast.error('Passwords do not match');
       }
+      // eslint-disable-next-line
       const response_3 = await updateUserProfilePassword(confirmNewPassword);
       toast.success('Profile password changed successfully');
     } catch (error) {
@@ -107,11 +109,9 @@ function ProfilePage() {
       <PageHero title='profile' />
       <div className='profile-img'>
         <img src={image} alt='profile' />
-
         <label className='btn' htmlFor='profile'>
           upload new
         </label>
-
         <input
           className='file-input'
           disabled={loading}
@@ -137,7 +137,6 @@ function ProfilePage() {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-
         <Button disabled={loading} type='submit' className='btn submit-btn'>
           save
         </Button>
@@ -157,10 +156,10 @@ function ProfilePage() {
             onChange={(e) => setExistingPassword(e.target.value)}
           />
           <div
+            className='togglebtn'
             onClick={(e) =>
               setIsVisibleCurrentPassword(!isVisibleCurrentPassword)
             }
-            className='togglebtn'
           >
             {!isVisibleCurrentPassword ? (
               <BsFillEyeSlashFill />
@@ -179,8 +178,8 @@ function ProfilePage() {
             onChange={(e) => setNewPassword(e.target.value)}
           />
           <div
-            onClick={(e) => setIsVisibleNewPassword(!isVisibleNewPassword)}
             className='togglebtn'
+            onClick={(e) => setIsVisibleNewPassword(!isVisibleNewPassword)}
           >
             {!isVisibleNewPassword ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
           </div>
@@ -195,10 +194,10 @@ function ProfilePage() {
             onChange={(e) => setConfirmNewPassword(e.target.value)}
           />
           <div
+            className='togglebtn'
             onClick={(e) =>
               setIsVisibleConfirmPassword(!isVisibleConfirmPassword)
             }
-            className='togglebtn'
           >
             {!isVisibleConfirmPassword ? (
               <BsFillEyeSlashFill />
@@ -207,7 +206,6 @@ function ProfilePage() {
             )}
           </div>
         </div>
-
         <Button disabled={loading} type='submit' className='btn submit-btn'>
           change password
         </Button>
