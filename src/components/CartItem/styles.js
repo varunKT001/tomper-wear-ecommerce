@@ -14,6 +14,11 @@ const Wrapper = styled.article`
   justify-items: center;
   margin-bottom: 3rem;
   align-items: center;
+
+  @media only screen and (max-width: 500px) {
+    grid-template-columns: 169px auto auto;
+    gap: 3rem 0rem;
+  }
   .title {
     grid-template-rows: 75px;
     display: grid;

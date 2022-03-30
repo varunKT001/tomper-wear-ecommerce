@@ -6,6 +6,9 @@ const Wrapper = styled.div`
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
+  @media only screen and (max-width: 500px) {
+    width: 80px;
+  }
   h2 {
     margin-bottom: 0;
   }
