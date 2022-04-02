@@ -6,6 +6,7 @@ import useMounted from '../../hooks/useMounted';
 import { toast } from 'react-toastify';
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 import Button from '../../components/Button';
+import { authErrorHandler } from "../../utils/firebase-auth-error-handler";
 
 function RegisterPage() {
   const history = useHistory();
@@ -39,9 +40,7 @@ function RegisterPage() {
       .then((res) => {
         history.push('/');
       })
-      .catch((err) => {
-        toast.error(`Error: ${err.message}`);
-      })
+      .catch((err) => authErrorHandler(err.code))
       .finally(() => mounted.current && setIsSubmitting(false));
   };
 
@@ -140,9 +139,7 @@ function RegisterPage() {
                 .then((user) => {
                   history.push('/');
                 })
-                .catch((err) => {
-                  toast.error(`Error: ${err.message}`);
-                });
+                .catch((err) => authErrorHandler(err.code));
             }}
           >
             sign in with google

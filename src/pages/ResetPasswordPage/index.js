@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useUserContext } from '../../context/user_context';
 import useQuery from '../../hooks/useQuery';
 import { toast } from 'react-toastify';
+import { authErrorHandler } from "../../utils/firebase-auth-error-handler";
 
 function ResetPasswordPage() {
   const history = useHistory();
@@ -29,9 +30,7 @@ function ResetPasswordPage() {
         toast.success('Password changed successfully, login to continue');
         history.push('/login');
       })
-      .catch((err) => {
-        toast.error(`Error: ${err.message}`);
-      });
+      .catch((err) => authErrorHandler(err.code));
   };
 
   useEffect(() => {
