@@ -9,6 +9,11 @@ const Wrapper = styled.section`
     border-radius: var(--radius);
     padding: 1.5rem 3rem;
   }
+  @media only screen and (max-width: 400px) {
+    article {
+      padding: 1.5rem .5rem;
+    }
+  }
   h4,
   h5,
   p {

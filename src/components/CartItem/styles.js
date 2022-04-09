@@ -22,6 +22,14 @@ const Wrapper = styled.article`
     text-align: left;
     gap: 1rem;
   }
+  @media only screen and (max-width: 500px) {
+    grid-template-columns: 175px auto auto;
+    gap: 0rem 0rem;
+    .title {
+      grid-template-columns: 75px 100px;
+      gap: 0.2rem;
+    }
+  }
   img {
     width: 100%;
     height: 100%;
