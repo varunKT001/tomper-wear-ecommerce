@@ -55,7 +55,6 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     document.title = `Tomper Wear | ${name}`;
-    console.log(images);
   }, [name]);
 
   if (loading) {
