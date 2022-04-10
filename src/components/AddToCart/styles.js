@@ -32,6 +32,7 @@ const Wrapper = styled.section`
       font-size: 0.75rem;
       color: var(--clr-white);
     }
+    z-index: -99;
   }
   .active {
     opacity: 1;
