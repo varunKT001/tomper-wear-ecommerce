@@ -4,16 +4,18 @@ import ReactImageMagnify from 'react-image-magnify';
 
 const ProductImages = ({ images = [{ url: '' }] }) => {
   const [main, setMain] = useState(images[0]);
+
   return (
     <Wrapper>
       <ReactImageMagnify
         {...{
           smallImage: {
+            className: 'main',
+            imageClassName: 'main',
+            sizes: '(max-width: 576px) 300px, (min-width: 992px) 500px,',
+            isFluidWidth: true,
             alt: 'main',
             src: main.url,
-            height: 500,
-            width: 600,
-            imageClassName: 'main',
           },
           largeImage: {
             src: main.url,
@@ -26,7 +28,6 @@ const ProductImages = ({ images = [{ url: '' }] }) => {
           },
         }}
       />
-
       <div className='gallery'>
         {images.map((image, index) => {
           return (
