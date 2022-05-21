@@ -9,9 +9,9 @@ const ProductImages = ({ images = [{ url: '' }] }) => {
     <Wrapper>
       <ReactImageMagnify
         {...{
+          className: 'main',
+          imageClassName: 'main',
           smallImage: {
-            className: 'main',
-            imageClassName: 'main',
             sizes: '(max-width: 576px) 300px, (min-width: 992px) 500px,',
             isFluidWidth: true,
             alt: 'main',
