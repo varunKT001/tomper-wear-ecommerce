@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useUserContext } from '../../context/user_context';
 import { toast } from 'react-toastify';
 import Button from '../../components/Button';
+import { authErrorHandler } from "../../utils/firebase-auth-error-handler";
 
 function ForgotPasswordPage() {
   const { forgotPassword } = useUserContext();
@@ -24,9 +25,7 @@ function ForgotPasswordPage() {
           'A password reset link has been sent, check your inbox and follow the instruction'
         );
       })
-      .catch((err) => {
-        toast.error(`Error: ${err.message}`);
-      })
+      .catch((err) => authErrorHandler(err.code))
       .finally(() => setIsSubmitting(false));
   };
 

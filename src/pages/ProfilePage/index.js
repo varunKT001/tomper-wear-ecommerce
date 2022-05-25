@@ -8,6 +8,7 @@ import { useCartContext } from '../../context/cart_context';
 import { useProductsContext } from '../../context/products_context';
 import Button from '../../components/Button';
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
+import { authErrorHandler } from "../../utils/firebase-auth-error-handler";
 
 function ProfilePage() {
   const {
@@ -95,7 +96,7 @@ function ProfilePage() {
       const response_3 = await updateUserProfilePassword(confirmNewPassword);
       toast.success('Profile password changed successfully');
     } catch (error) {
-      toast.error(`Error: ${error.message}`);
+      authErrorHandler(error.code);
     }
     setLoading(false);
   };
