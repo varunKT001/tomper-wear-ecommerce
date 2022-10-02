@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Wrapper from './styles';
 import { useUserContext } from '../../context/user_context';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useMounted from '../../hooks/useMounted';
 import { toast } from 'react-toastify';
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 import Button from '../../components/Button';
 
 function RegisterPage() {
-  const history = useHistory();
+  const history = useNavigate();
   const mounted = useMounted();
   const { registerUser, signInWithGoogle } = useUserContext();
   const [email, setEmail] = useState('');
@@ -37,7 +37,7 @@ function RegisterPage() {
     setIsSubmitting(true);
     registerUser(email, password)
       .then((res) => {
-        history.push('/');
+        history('/');
       })
       .catch((err) => {
         toast.error(`Error: ${err.message}`);
@@ -138,7 +138,7 @@ function RegisterPage() {
             onClick={() => {
               signInWithGoogle()
                 .then((user) => {
-                  history.push('/');
+                  history('/');
                 })
                 .catch((err) => {
                   toast.error(`Error: ${err.message}`);

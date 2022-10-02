@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Wrapper from './styles';
 import { useUserContext } from '../../context/user_context';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import useMounted from '../../hooks/useMounted';
 import { toast } from 'react-toastify';
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 import Button from '../../components/Button';
 
 function LoginPage() {
-  const history = useHistory();
+  const history = useNavigate();
   const location = useLocation();
   const mounted = useMounted();
   const { loginUser, signInWithGoogle } = useUserContext();
@@ -31,14 +31,14 @@ function LoginPage() {
     setIsSubmitting(true);
     loginUser(email, password)
       .then((res) => {
-        history.push(location.state?.from ?? '/');
+        history(location.state?.from ?? '/');
       })
       .catch((err) => {
         toast.error(`Error: ${err.message}`);
       })
       .finally(() => mounted.current && setIsSubmitting(false));
   };
-  
+
   function togglePasswordVisibility() {
     setVisible(!visible);
   }
@@ -110,7 +110,7 @@ function LoginPage() {
             onClick={() => {
               signInWithGoogle()
                 .then((user) => {
-                  history.push('/');
+                  history('/');
                 })
                 .catch((err) => {
                   toast.error(`Error: ${err.message}`);

@@ -12,7 +12,7 @@ import { useCartContext } from '../../context/cart_context';
 import { useUserContext } from '../../context/user_context';
 import { useOrderContext } from '../../context/order_context';
 import { formatPrice } from '../../utils/helpers';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { payment_url as url } from '../../utils/constants';
 
@@ -22,7 +22,7 @@ const CheckoutForm = () => {
   const { cart, total_amount, shipping_fee, clearCart } = useCartContext();
   const { shipping, placeOrder } = useOrderContext();
   const { currentUser } = useUserContext();
-  const history = useHistory();
+  const history = useNavigate();
 
   // STRIPE STUFF
   const [succeeded, setSucceeded] = useState(false);
@@ -93,7 +93,7 @@ const CheckoutForm = () => {
       await placeOrder();
       setTimeout(() => {
         clearCart();
-        history.push('/orders');
+        history('/orders');
       }, 5000);
     }
   };

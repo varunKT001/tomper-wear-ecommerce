@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar, Sidebar, Footer, Toast, ErrorBoundary } from './components';
 import { useProductsContext } from './context/products_context';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,6 +19,7 @@ import {
   PrivateRoute,
   ProfilePage,
 } from './pages';
+import PrivateRoute2 from './pages/PrivateRoute/index2';
 
 function App() {
   const { isSidebarOpen } = useProductsContext();
@@ -32,45 +33,28 @@ function App() {
         <Navbar />
         <Sidebar />
         <ErrorBoundary>
-          <Switch>
-            <Route exact path='/'>
-              <Home />
+          <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route exact path='/about' element={<About />} />
+            <Route exact path='/products' element={<Products />} />
+            <Route exact path='/cart' element={<Cart />} />
+
+            <Route element={<PrivateRoute />}>
+              <Route element={<Login />} path='/login' />
+              <Route element={<Register />} path='/register' />
+              <Route element={<Forgot />} path='/forgot-password' />
+              <Route element={<Reset />} path='/reset-password' />
             </Route>
-            <Route exact path='/about'>
-              <About />
+
+            <Route element={<PrivateRoute2 />}>
+              <Route element={<Checkout />} path='/checkout' />
+              <Route element={<OrdersPage />} path='/orders' />
+              <Route element={<ProfilePage />} path='/profile' />
             </Route>
-            <Route exact path='/products'>
-              <Products />
-            </Route>
-            <Route exact path='/cart'>
-              <Cart />
-            </Route>
-            <PrivateRoute exact path='/login'>
-              <Login />
-            </PrivateRoute>
-            <PrivateRoute exact path='/register'>
-              <Register />
-            </PrivateRoute>
-            <PrivateRoute exact path='/forgot-password'>
-              <Forgot />
-            </PrivateRoute>
-            <PrivateRoute exact path='/reset-password'>
-              <Reset />
-            </PrivateRoute>
-            <Route exact path='/products/:id' children={<SingleProduct />} />
-            <PrivateRoute exact path='/checkout'>
-              <Checkout />
-            </PrivateRoute>
-            <PrivateRoute exact path='/orders'>
-              <OrdersPage />
-            </PrivateRoute>
-            <PrivateRoute exact path='/profile'>
-              <ProfilePage />
-            </PrivateRoute>
-            <Route exact path='*'>
-              <Error />
-            </Route>
-          </Switch>
+
+            <Route exact path='/products/:id' element={<SingleProduct />} />
+            <Route exact path='*' element={<Error />} />
+          </Routes>
         </ErrorBoundary>
         <Footer />
       </Router>

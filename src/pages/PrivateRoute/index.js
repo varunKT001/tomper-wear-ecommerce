@@ -1,33 +1,19 @@
 import React from 'react';
-import { Route, Redirect, useLocation } from 'react-router-dom';
+import { Outlet, Navigate, useLocation } from 'react-router-dom';
 import { useUserContext } from '../../context/user_context';
 
-const PrivateRoute = ({ children, ...rest }) => {
+const PrivateRoute = () => {
   const { currentUser } = useUserContext();
   const location = useLocation();
 
-  if (
-    rest.path === '/login' ||
-    rest.path === '/register' ||
-    rest.path === '/forgot-password' ||
-    rest.path === '/reset-password'
-  ) {
-    return currentUser ? (
-      <Redirect to={location.state?.from ?? '/'} />
-    ) : (
-      <Route {...rest}>{children}</Route>
-    );
-  }
-
   return currentUser ? (
-    <Route {...rest}>{children}</Route>
+    <Navigate replace to={location.state?.from ?? '/'} />
   ) : (
-    <Redirect
-      to={{
-        pathname: '/login',
-        state: { from: rest.path },
-      }}
-    />
+    <Outlet />
   );
+  // rest.path === '/login' ||
+  //   rest.path === '/register' ||
+  //   rest.path === '/forgot-password' ||
+  //   rest.path === '/reset-password';
 };
 export default PrivateRoute;
