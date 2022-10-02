@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Wrapper from './styles';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../context/user_context';
 import useQuery from '../../hooks/useQuery';
 import { toast } from 'react-toastify';
 
 function ResetPasswordPage() {
-  const history = useHistory();
+  const history = useNavigate();
   const { resetPassword } = useUserContext();
   const query = useQuery();
   const [password, setPassword] = useState('');
@@ -21,13 +21,13 @@ function ResetPasswordPage() {
     }
 
     if (!oobCode) {
-      return history.push('/');
+      return history('/');
     }
 
     resetPassword(oobCode, password)
       .then((res) => {
         toast.success('Password changed successfully, login to continue');
-        history.push('/login');
+        history('/login');
       })
       .catch((err) => {
         toast.error(`Error: ${err.message}`);
