@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Navbar, Sidebar, Footer, Toast, ErrorBoundary } from './components';
-import { useProductsContext } from './context/products_context';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   Home,
@@ -19,14 +18,11 @@ import {
   PrivateRoute,
   ProfilePage,
 } from './pages';
+import ScrollButton from './components/ScrollButton/ScrollButton';
 
 function App() {
-  const { isSidebarOpen } = useProductsContext();
-  const overflowPropertyToHideScroll =
-    isSidebarOpen === true ? 'hidden' : 'scroll';
-
   return (
-    <div style={{ maxHeight: '100vh', overflow: overflowPropertyToHideScroll }}>
+    <div style={{ maxHeight: '100vh'}}>
       <Router>
         <Toast />
         <Navbar />
@@ -72,6 +68,7 @@ function App() {
             </Route>
           </Switch>
         </ErrorBoundary>
+        <ScrollButton />
         <Footer />
       </Router>
     </div>
