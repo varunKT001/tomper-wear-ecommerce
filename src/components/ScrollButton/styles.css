@@ -1,0 +1,35 @@
+.scrollTop {
+    position: fixed;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0.25em;
+    bottom: 50px;
+    right: 50px;
+    width: 40px;
+    height: 40px;
+    border-radius: 16px;
+    background-color: #ab7a5f;
+    color: #433731;
+    cursor: pointer;
+}
+  
+@media only screen and (max-width: 600px) {
+  .scrollTop {
+    position: fixed;
+    font-size: 25px;
+    font-weight: 800;
+    padding: 0.25em;
+    bottom: 40px;
+    right: 40px;
+    width: 35px;
+    height: 35px;
+    border-radius: 12px;
+    background-color: #ab7a5f;
+    color: #433731;
+    cursor: pointer;
+  }
+}
+
+.scrollTop:hover {
+    background-color: #b3907d;
+}
