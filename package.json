@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@formspree/react": "^2.2.4",
+    "@fortawesome/fontawesome-free": "^6.4.0",
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.11.0",
     "@testing-library/jest-dom": "^5.11.6",
